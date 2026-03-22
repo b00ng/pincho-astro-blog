@@ -1,0 +1,77 @@
+{
+  "name": "Mobile uploads",
+  "photos": [
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Mobileuploads_406264711695095/1036513602003533.jpg",
+      "creation_timestamp": 1749954647,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1749954647
+            }
+          ]
+        }
+      },
+      "title": "Mobile uploads"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Mobileuploads_406264711695095/1036513605336866.jpg",
+      "creation_timestamp": 1749954647,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1749954647
+            }
+          ]
+        }
+      },
+      "title": "Mobile uploads"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Mobileuploads_406264711695095/1036513608670199.jpg",
+      "creation_timestamp": 1749954647,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1749954647
+            }
+          ]
+        }
+      },
+      "title": "Mobile uploads"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Mobileuploads_406264711695095/1036513612003532.jpg",
+      "creation_timestamp": 1749954647,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1749954647
+            }
+          ]
+        }
+      },
+      "title": "Mobile uploads"
+    }
+  ],
+  "cover_photo": {
+    "uri": "this_profile's_activity_across_facebook/posts/media/Mobileuploads_406264711695095/1036513612003532.jpg",
+    "creation_timestamp": 1749954647,
+    "media_metadata": {
+      "photo_metadata": {
+        "exif_data": [
+          {
+            "taken_timestamp": 1749954647
+          }
+        ]
+      }
+    },
+    "title": "Mobile uploads"
+  },
+  "last_modified_timestamp": 1749954647,
+  "description": ""
+}

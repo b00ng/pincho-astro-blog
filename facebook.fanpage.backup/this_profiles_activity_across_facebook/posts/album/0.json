@@ -1,0 +1,147 @@
+{
+  "name": "Cover photos",
+  "photos": [
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Coverphotos_406264715028428/1002742052047355.jpg",
+      "creation_timestamp": 1745914606,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1745914633
+            }
+          ]
+        }
+      },
+      "title": "Cover photos"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Coverphotos_406264715028428/1133508052304087.jpg",
+      "creation_timestamp": 1760438139,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1760438163
+            }
+          ]
+        }
+      },
+      "title": "Cover photos"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Coverphotos_406264715028428/1142057484782477.jpg",
+      "creation_timestamp": 1761298224,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1761298235
+            }
+          ]
+        }
+      },
+      "title": "Cover photos"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Coverphotos_406264715028428/1185434240444801.jpg",
+      "creation_timestamp": 1766131255,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1766131260
+            }
+          ]
+        }
+      },
+      "title": "Cover photos"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Coverphotos_406264715028428/1192026369785588.jpg",
+      "creation_timestamp": 1766917213,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1766917220
+            }
+          ]
+        }
+      },
+      "title": "Cover photos"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Coverphotos_406264715028428/1197400545914837.jpg",
+      "creation_timestamp": 1767554595,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1767554607
+            }
+          ]
+        }
+      },
+      "title": "Cover photos"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Coverphotos_406264715028428/1225905529731005.jpg",
+      "creation_timestamp": 1770631753,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1770631763
+            }
+          ]
+        }
+      },
+      "title": "Cover photos"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Coverphotos_406264715028428/1240304004957824.jpg",
+      "creation_timestamp": 1772097232,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1772097244
+            }
+          ]
+        }
+      },
+      "title": "Cover photos"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Coverphotos_406264715028428/1245134881141403.png",
+      "creation_timestamp": 1772613271,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1772613289
+            }
+          ]
+        }
+      },
+      "title": "Cover photos"
+    }
+  ],
+  "cover_photo": {
+    "uri": "this_profile's_activity_across_facebook/posts/media/Coverphotos_406264715028428/1245134881141403.png",
+    "creation_timestamp": 1772613271,
+    "media_metadata": {
+      "photo_metadata": {
+        "exif_data": [
+          {
+            "taken_timestamp": 1772613289
+          }
+        ]
+      }
+    },
+    "title": "Cover photos"
+  },
+  "last_modified_timestamp": 1772613289,
+  "description": ""
+}

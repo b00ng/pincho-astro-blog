@@ -1,0 +1,19 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Node/Astro basics
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+
+# Temporary Extractions
+extracted_menu_text.txt
+extract_text.py

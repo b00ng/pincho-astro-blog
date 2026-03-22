@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const sorted = posts.sort((a, b) => 
+    new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
+  );
+
+  return sorted.map((post, index) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      prevPost: index > 0 ? sorted[index - 1] : null,
+      nextPost: index < sorted.length - 1 ? sorted[index + 1] : null,
+    },
+  }));
+}
+
+const { post, prevPost, nextPost } = Astro.props;
+const { Content } = await render(post);
+
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+  }).format(date);
+}
+
+const images = post.data.images || [];
+const tags = post.data.tags || [];
+const galleryClass = `gallery__grid gallery__grid--${Math.min(images.length, 4)}`;
+---
+
+<BaseLayout title={post.data.title} description={post.data.description} bodyClass="post-page">
+  <!-- Breadcrumb -->
+  <div class="container" style="max-width: 800px;">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/posts/">Stories</a><span>›</span>
+      <span style="color: #78716c;">{post.data.title}</span>
+    </div>
+  </div>
+
+  <!-- Post Header -->
+  <header class="post-header">
+    <div class="container" style="max-width: 800px;">
+      <time class="post-header__date" datetime={post.data.date.toISOString()}>
+        {formatDate(post.data.date)}
+      </time>
+      <h1 class="post-header__title">{post.data.title}</h1>
+      {tags.length > 0 && (
+        <div class="post-header__tags">
+          {tags.map((tag: string) => (
+            <a href={`/tags/${tag}/`} class="tag">#{tag}</a>
+          ))}
+        </div>
+      )}
+    </div>
+  </header>
+
+  <!-- Image Gallery -->
+  {images.length > 0 && (
+    <section class="gallery">
+      <div class="container">
+        <div class={galleryClass}>
+          {images.map((src: string, i: number) => (
+            <div class="gallery__item" data-lightbox={i} id={`gallery-item-${i}`}>
+              <img 
+                src={src} 
+                alt={`${post.data.title} — photo ${i + 1}`}
+                loading={i < 2 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Post Content -->
+  <article class="post-content">
+    <Content />
+  </article>
+
+  <!-- Post Navigation -->
+  <nav class="post-nav">
+    <div class="post-nav__item">
+      {prevPost && (
+        <a href={`/posts/${prevPost.id}/`}>
+          <span class="post-nav__label">← Previous</span>
+          <span class="post-nav__title">{prevPost.data.title}</span>
+        </a>
+      )}
+    </div>
+    <div class="post-nav__item post-nav__item--next">
+      {nextPost && (
+        <a href={`/posts/${nextPost.id}/`}>
+          <span class="post-nav__label">Next →</span>
+          <span class="post-nav__title">{nextPost.data.title}</span>
+        </a>
+      )}
+    </div>
+  </nav>
+
+  <!-- Lightbox -->
+  {images.length > 0 && (
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox__close" id="lightbox-close" aria-label="Close">✕</button>
+      {images.length > 1 && (
+        <>
+          <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Previous">‹</button>
+          <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Next">›</button>
+        </>
+      )}
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+  )}
+</BaseLayout>
+
+<script define:vars={{ images }}>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const galleryItems = document.querySelectorAll('[data-lightbox]');
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = images[index];
+    lightboxImg.alt = `Photo ${index + 1}`;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function navigate(direction) {
+    currentIndex = (currentIndex + direction + images.length) % images.length;
+    lightboxImg.src = images[currentIndex];
+    lightboxImg.alt = `Photo ${currentIndex + 1}`;
+  }
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => openLightbox(parseInt(item.dataset.lightbox)));
+  });
+  document.getElementById('lightbox-close')?.addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev')?.addEventListener('click', () => navigate(-1));
+  document.getElementById('lightbox-next')?.addEventListener('click', () => navigate(1));
+  lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox?.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+  });
+</script>

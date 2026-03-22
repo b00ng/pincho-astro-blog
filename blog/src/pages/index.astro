@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import MenuItem from '../components/MenuItem.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const posts = allPosts
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 6);
+
+const featuredMenu = [
+  { name: 'Patatas Bravas', price: '95,000₫', description: 'Crispy potatoes, smoky aioli, spicy tomato sauce' },
+  { name: 'Wagyu Beef Tartare', price: '245,000₫', description: 'Hand-cut wagyu, quail egg, truffle oil, crostini' },
+  { name: 'Grilled Iberico Pork', price: '385,000₫', description: 'Spanish black pig, chimichurri, roasted vegetables' },
+  { name: 'Burrata Salad', price: '185,000₫', description: 'Creamy burrata, heirloom tomatoes, basil pesto' },
+  { name: 'Raclette Cheese Platter', price: '295,000₫', description: 'Melted raclette over cured meats and potatoes' },
+  { name: 'Seafood Paella', price: '325,000₫', description: 'Saffron rice, prawns, mussels, squid, chorizo' },
+];
+---
+
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="hero" style="background-image: url('/images/posts/1185517790436446.jpg')">
+    <div class="hero__content">
+      <h1 class="hero__title animate animate--up">
+        Tapas Kitchen <span>& Drinks</span>
+      </h1>
+      <p class="hero__subtitle animate animate--up">
+        Award-winning Spanish-fusion tapas, creative cocktails, and panoramic city views from the upper floors of our historic villa in Hà Nội.
+      </p>
+      <div class="animate animate--up" style="margin: 1.5rem 0 2rem; display: flex; justify-content: center; gap: 1rem; align-items: center;">
+        <span style="background: rgba(230, 81, 0, 0.9); padding: 8px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; color: #fff; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2);">
+          <i class="fas fa-crown"></i> 2022 Restaurant of the Year
+        </span>
+      </div>
+      <a href="/menu/" class="hero__cta animate animate--up">Explore Our Menu</a>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="section section--alt">
+    <div class="container about-preview">
+      <SectionHeader title="Welcome to" accent="Pincho" />
+      <p class="about-preview__text animate animate--up">
+        Nestled in the upper floors of a charming French colonial villa at 34C Cao Ba Quat, Pincho offers an award-winning tapas experience. Our warm lighting and captivating decor set the perfect stage for romantic dates or shared gatherings, presenting a creative fusion of bold Spanish flavors, premium ingredients, curated wines, and Vietnamese culinary artistry.
+      </p>
+      <a href="/about/" class="btn btn--outline btn--center animate animate--up">Read Our Story →</a>
+    </div>
+  </section>
+
+  <!-- Featured Menu -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader title="Featured" accent="Menu" subtitle="Discover our signature tapas paired beautifully with Spanish wines and creative cocktails" />
+      <div class="menu-grid animate animate--up">
+        {featuredMenu.map(item => (
+          <MenuItem name={item.name} price={item.price} description={item.description} />
+        ))}
+      </div>
+      <a href="/menu/" class="btn btn--primary btn--center">View Full Menu</a>
+    </div>
+  </section>
+
+  <!-- Blog Checkerboard -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader title="Our" accent="Stories" subtitle="Latest from Pincho's kitchen" />
+    </div>
+    <div class="blog-checkerboard">
+      {posts.map(post => (
+        <BlogCard
+          title={post.data.title}
+          date={post.data.date}
+          excerpt={post.data.description}
+          image={post.data.images?.[0]}
+          href={`/posts/${post.id}/`}
+        />
+      ))}
+    </div>
+    <a href="/posts/" class="btn btn--primary btn--center" style="margin-top: 2rem;">View All Stories</a>
+  </section>
+
+
+  <!-- Contact Strip -->
+  <section class="section" style="padding: 0;">
+    <div class="container">
+      <div class="contact-strip">
+        <div class="contact-strip__item">
+          <div class="contact-strip__label">Address</div>
+          <div class="contact-strip__value">34C Cao Ba Quat, Ba Dinh, Hanoi</div>
+        </div>
+        <div class="contact-strip__item">
+          <div class="contact-strip__label">Reservations</div>
+          <div class="contact-strip__value"><a href="tel:0949022882">0949.022.882</a></div>
+        </div>
+        <div class="contact-strip__item">
+          <div class="contact-strip__label">Hours</div>
+          <div class="contact-strip__value">Mon – Sun: 11:00 – 23:00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

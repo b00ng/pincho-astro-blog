@@ -1,0 +1,42 @@
+[
+  {
+    "media": [
+      
+    ],
+    "label_values": [
+      {
+        "label": "Visit time",
+        "timestamp_value": 1687341372
+      },
+      {
+        "label": "Name of application used to tag this place",
+        "value": "Instagram"
+      },
+      {
+        "label": "Place name",
+        "value": "Pincho - Tapas Kitchen and Drinks"
+      }
+    ],
+    "fbid": "572044255117139"
+  },
+  {
+    "media": [
+      
+    ],
+    "label_values": [
+      {
+        "label": "Visit time",
+        "timestamp_value": 1541270002
+      },
+      {
+        "label": "Name of application used to tag this place",
+        "value": "Facebook for Android"
+      },
+      {
+        "label": "Place name",
+        "value": "Hanoi, Vietnam"
+      }
+    ],
+    "fbid": "1996695517295191"
+  }
+]

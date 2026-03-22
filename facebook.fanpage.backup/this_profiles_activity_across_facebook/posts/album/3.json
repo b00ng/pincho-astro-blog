@@ -1,0 +1,119 @@
+{
+  "name": "Profile pictures",
+  "photos": [
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Profilepictures_406264718361761/1133507528970806.jpg",
+      "creation_timestamp": 1760438094,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1760438098
+            }
+          ]
+        }
+      },
+      "title": "Profile pictures"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Profilepictures_406264718361761/1142057781449114.jpg",
+      "creation_timestamp": 1761298256,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1761298258
+            }
+          ]
+        }
+      },
+      "title": "Profile pictures"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Profilepictures_406264718361761/1185433023778256.jpg",
+      "creation_timestamp": 1766131128,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1766131130
+            }
+          ]
+        }
+      },
+      "title": "Profile pictures"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Profilepictures_406264718361761/1192026183118940.jpg",
+      "creation_timestamp": 1766917190,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1766917191
+            }
+          ]
+        }
+      },
+      "title": "Profile pictures"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Profilepictures_406264718361761/1197400319248193.jpg",
+      "creation_timestamp": 1767554567,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1767554568
+            }
+          ]
+        }
+      },
+      "title": "Profile pictures"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Profilepictures_406264718361761/1225905913064300.jpg",
+      "creation_timestamp": 1770631789,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1770631790
+            }
+          ]
+        }
+      },
+      "title": "Profile pictures"
+    },
+    {
+      "uri": "this_profile's_activity_across_facebook/posts/media/Profilepictures_406264718361761/1245134587808099.jpg",
+      "creation_timestamp": 1772613243,
+      "media_metadata": {
+        "photo_metadata": {
+          "exif_data": [
+            {
+              "taken_timestamp": 1772613244
+            }
+          ]
+        }
+      },
+      "title": "Profile pictures"
+    }
+  ],
+  "cover_photo": {
+    "uri": "this_profile's_activity_across_facebook/posts/media/Profilepictures_406264718361761/1197400319248193.jpg",
+    "creation_timestamp": 1767554567,
+    "media_metadata": {
+      "photo_metadata": {
+        "exif_data": [
+          {
+            "taken_timestamp": 1767554568
+          }
+        ]
+      }
+    },
+    "title": "Profile pictures"
+  },
+  "last_modified_timestamp": 1773139201,
+  "description": ""
+}

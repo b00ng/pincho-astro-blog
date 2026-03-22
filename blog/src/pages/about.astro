@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+---
+
+<BaseLayout title="About Us">
+  <PageHero title="About Us" />
+
+  <!-- Our Story -->
+  <section class="section">
+    <div class="container">
+      <div class="about-story">
+        <div class="about-story__text animate animate--left">
+          <h3>Our <span style="color: var(--color-accent);">Story</span></h3>
+          <p>
+            Pincho was born from a simple dream — to bring the joyful, communal spirit of Spanish tapas culture to the heart of Hanoi. Nestled inside a beautifully restored French colonial villa at 34C Cao Ba Quat, our space blends old-world charm with contemporary warmth.
+          </p>
+          <p>
+            Led by Chef Hào Nguyễn, our kitchen creates bold fusion dishes that bridge the flavors of Spain, France, and Vietnam. From hand-selected Wagyu beef to artisan Raclette cheese, every ingredient tells a story of craftsmanship and passion.
+          </p>
+          <p>
+            Whether you're gathering for a weekend Bruncho, an intimate dinner, or a festive celebration, Pincho is your place to slow down, share plates, and create unforgettable moments.
+          </p>
+        </div>
+        <div class="about-story__image animate animate--right">
+          <img src="/images/posts/1185517787103113.jpg" alt="Inside Pincho restaurant" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="parallax-section" style="background-image: url('/images/posts/1185517783769780.jpg')">
+    <div class="parallax-section__content">
+      <div class="stats">
+        <div class="animate animate--bounce">
+          <div class="stat__number" data-count="8">0</div>
+          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Years Open</div>
+        </div>
+        <div class="animate animate--bounce">
+          <div class="stat__number" data-count="300">0</div>
+          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Tapas & Dishes</div>
+        </div>
+        <div class="animate animate--bounce">
+          <div class="stat__number" data-count="50000">0</div>
+          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Happy Guests</div>
+        </div>
+        <div class="animate animate--bounce">
+          <div class="stat__number" data-count="15">0</div>
+          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Team Members</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader title="Meet Our" accent="Team" subtitle="The people behind every plate" />
+      <div class="team-grid">
+        <div class="team-card animate animate--up">
+          <img class="team-card__photo" src="/images/posts/1185517790436446.jpg" alt="Chef Hào Nguyễn" loading="lazy" />
+          <h4 class="team-card__name">Hào Nguyễn</h4>
+          <p class="team-card__role">Head Chef</p>
+        </div>
+        <div class="team-card animate animate--up">
+          <img class="team-card__photo" src="/images/posts/1185517793769779.jpg" alt="Restaurant Manager" loading="lazy" />
+          <h4 class="team-card__name">Pincho Team</h4>
+          <p class="team-card__role">Service & Hospitality</p>
+        </div>
+        <div class="team-card animate animate--up">
+          <img class="team-card__photo" src="/images/posts/1185517787103113.jpg" alt="Bar Team" loading="lazy" />
+          <h4 class="team-card__name">The Bar</h4>
+          <p class="team-card__role">Mixology & Wine</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chef Quote -->
+  <section class="parallax-section" style="background-image: url('/images/posts/1185517790436446.jpg')">
+    <div class="parallax-section__content">
+      <p class="parallax-section__quote">
+        "Cooking is about sharing. Every dish we create at Pincho is an invitation to gather around the table and celebrate life together."
+      </p>
+      <p class="parallax-section__author">— Chef Hào Nguyễn</p>
+    </div>
+  </section>
+
+
+</BaseLayout>
+
+<script>
+  // Counter animation
+  const counters = document.querySelectorAll('[data-count]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target as HTMLElement;
+        const target = parseInt(el.dataset.count || '0');
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 60));
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.textContent = current.toLocaleString() + (target >= 1000 ? '+' : '');
+        }, 30);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => observer.observe(c));
+</script>

@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const recentPosts = allPosts
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 4);
+
+// Collect gallery images from recent posts
+const galleryImages = allPosts
+  .filter(p => p.data.images?.length)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 8)
+  .map(p => p.data.images[0]);
+
+function formatDate(d: Date): string {
+  return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(d);
+}
+---
+
+<BaseLayout title="Contact Us">
+  <PageHero title="Contact Us" />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader title="Get in" accent="Touch" subtitle="We'd love to hear from you" />
+
+      <!-- Map -->
+      <div class="contact-map animate animate--up" style="margin-top: 0; margin-bottom: 4rem;">
+        <iframe
+          src="https://maps.google.com/maps?q=Pincho,%2034C%20Cao%20Ba%20Quat,%20Ba%20Dinh,%20Hanoi&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Pincho location"
+        ></iframe>
+      </div>
+
+      <!-- 3-Column Info -->
+      <div class="contact-info animate animate--up">
+        <div class="contact-info__item">
+          <h4><i class="fas fa-map-marker-alt contact-info__icon"></i> Visit Us</h4>
+          <p>
+            34C Cao Ba Quat<br />
+            Ba Dinh District, Hanoi<br />
+            <strong>Mon – Sun: 11:00 – 23:00</strong>
+          </p>
+          <p style="margin-top: 1rem;">
+            <i class="fas fa-phone contact-info__icon"></i> <a href="tel:0949022882">0949.022.882</a><br />
+            <i class="fas fa-envelope contact-info__icon"></i> <a href="mailto:contact@pincho.vn">contact@pincho.vn</a>
+          </p>
+        </div>
+        <div class="contact-info__item">
+          <h4>Latest Posts</h4>
+          <div class="mini-posts">
+            {recentPosts.map(post => (
+              <a href={`/posts/${post.id}/`} class="mini-post">
+                <div class="mini-post__title">{post.data.title}</div>
+                <div class="mini-post__date">{formatDate(post.data.date)}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+        <div class="contact-info__item">
+          <h4>Photo Stream</h4>
+          <div class="photo-stream">
+            {galleryImages.map(src => (
+              <img src={src} alt="Pincho gallery" loading="lazy" />
+            ))}
+          </div>
+          <div class="social-links">
+            <a href="https://facebook.com/pincho.vn" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/pincho.vn" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/@pincho.vn" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+</BaseLayout>

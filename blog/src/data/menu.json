@@ -1,0 +1,79 @@
+{
+  "Tapas From The Sea": [
+    { "name": "Smoked Salmon, Spicy Crab Salad, Avocado & Vietnamese 'Banh Da'", "price": "90,000₫", "description": "Cá hồi xông khói, quả bơ, cua nghiền cay và bánh đa Việt Nam" },
+    { "name": "Scallop Sesame Tart, Chili Oil, Taro Foam", "price": "120,000₫", "description": "Tart vừng sò điệp, dầu ớt và bọt khoai môn" },
+    { "name": "Scallop, Wasabi Mousse & Ponzu Sauce", "price": "130,000₫", "description": "Sò điệp, mousse mù tạt và xốt Ponzu" },
+    { "name": "Prawn 'Banh Da' Tacos, Avocado & Creamy Tom Yum", "price": "90,000₫", "description": "Tacos tôm bánh đa, quả bơ và xốt kem tom yum" },
+    { "name": "Unagi, Truffle Oil, Foie Gras Ballotine & Vietnamese 'Banh Da'", "price": "140,000₫", "description": "Lươn nướng, dầu nấm truffle, gan ngỗng muối và bánh đa" },
+    { "name": "Shrimp Croquettes, Parma Ham, Pickled Shallot & Aioli Sauce", "price": "90,000₫", "description": "Viên tôm chiên, thịt đùi lợn muối, hành tím ngâm & xốt aioli" },
+    { "name": "Octopus, Chorizo, Potatoes & Hollandaise", "price": "210,000₫", "description": "Bạch tuộc nướng, xúc xích cay, khoai tây và xốt Hollandaise" },
+    { "name": "Grilled Shrimp, Hollandaise & Vietnamese 'Bánh Tráng'", "price": "190,000₫", "description": "Tôm nướng, xốt Hollandaise và bánh tráng Việt Nam" }
+  ],
+  "Tapas From The Ground": [
+    { "name": "Coppa Ham, Brie, Cranberries & Ciabata", "price": "80,000₫", "description": "Thịt cổ lợn muối, quả nam việt quất và phomai Brie, bánh mì ciabata" },
+    { "name": "Lomo Iberico, Avocado, Cream Cheese & Ciabata", "price": "150,000₫", "description": "Thịt lợn chân đen Tây Ban Nha muối, quả bơ, kem phô mai và bánh mì ciabata" },
+    { "name": "Iberico Tacos, Baby Corns & Corn Purée", "price": "160,000₫", "description": "Tacos thịt lợn chân đen Tây Ban Nha, ngô bao tử & ngô nghiền" },
+    { "name": "Fillet of Beef, Dried Tomato & Celeriac Remoulade", "price": "150,000₫", "description": "Bò áp chảo, cà chua sấy và kem cần tây" },
+    { "name": "Wagyu Beef, Aioli Sauce & Garlic Cracker", "price": "180,000₫", "description": "Bò Wagyu khô, xốt Aioli và bánh mì tỏi giòn" },
+    { "name": "Pulled Iberico Pork Croquettes, Quail Egg, Bell Peppers & Hollandaise Sause", "price": "100,000₫", "description": "Iberico xé sợi hầm, trứng cút, ớt Đà Lạt muối và xốt Hollandaise" },
+    { "name": "Grilled Mushroom, Truffle Oil, Aioli Sauce, Perilla Leaf & Garlic Cracker", "price": "70,000₫", "description": "Nấm nướng, dầu nấm truffle, xốt Aioli, lá tía tô và bánh mì tỏi giòn" },
+    { "name": "Foie Gras with Roasted Apple, Grilled Pineapple, Mango Salsa & Brioche", "price": "290,000₫", "description": "Gan ngỗng áp chảo với táo nướng, dứa nướng, xoài tươi trộn và bánh mì ngọt" }
+  ],
+  "Cold Cut": [
+    { "name": "Veggie Cold Cut", "price": "190,000₫", "description": "Khay khai vị chay gồm: phô mai Mozzarella, bánh mì tỏi giòn, ớt chuông sấy, quả vả khô, xốt quả bơ và xốt mayonnaise xông khói" },
+    { "name": "Jamon Iberico Puro Bellota Cold Cut", "price": "380,000₫ - 580,000₫", "description": "Thịt đùi lợn chân đen Jamon Iberico Bellota muối" },
+    { "name": "Selection of Iberian Charcuterie (Chorizo/ Salami/ Lomo)", "price": "280,000₫", "description": "Đĩa các loại thịt nguội từ lợn Iberico" }
+  ],
+  "Salad & Veggie": [
+    { "name": "Pincho Salad - Smoked Salmon, Shrimp, Avocado & Kumquat Sauce", "price": "190,000₫", "description": "Salad cá hồi xông khói, tôm, quả bơ và xốt quất" },
+    { "name": "Snow in Summer Salad - Guanciale, Parma Ham, Dried Bell Pepper", "price": "180,000₫", "description": "Salad má heo muối, đùi lợn muối, ớt sấy, rau tuyết và giấm Ý" },
+    { "name": "Duck Salad - Dry-Aged Duck, Green Grape, Yellow Melon", "price": "240,000₫", "description": "Salad vịt ủ khô, nho xanh, dưa vàng, cam vàng, rau bóng tuyết" },
+    { "name": "'Fruit Ninja' Salad - Seasonal Fruit, Parma Ham & Candied Peanut", "price": "170,000₫", "description": "Salad hoa quả theo mùa, thịt đùi lợn muối và đậu phộng ngào đường" },
+    { "name": "Duxelle of Mushroom, Hollandaise & Poached Quail Egg", "price": "90,000₫", "description": "Nấm đút rượu Madeira ăn cùng trứng cút trần và xốt Hollandaise" },
+    { "name": "'Lady Burrata' - Truffle Burrata, Seasonal Fruits, Honey", "price": "320,000₫", "description": "Truffle phô mai Burrata, hoa quả theo mùa, mật ong, hoa bụt giấm, giấm Ý" }
+  ],
+  "Seasonal Taste": [
+    { "name": "Wagyu Beef Tartare, Flying Fish Roe, Toast", "price": "180,000₫", "description": "Bò Wagyu sống trộn 3 loại xốt, trứng cá chuồn, bánh mì bơ áp chảo" },
+    { "name": "Foie Gras in Bell Pepper and Tomato Soup & Sourdough", "price": "190,000₫", "description": "Súp ớt chuông và cà chua, gan ngỗng áp chảo, bánh mì men chua" },
+    { "name": "Wagyu Tartare, Poached Quail Egg, Brioche & Hollandaise", "price": "160,000₫", "description": "Bò Wagyu sống trộn, trứng cút trần, bánh mì ngọt và xốt Hollandaise" },
+    { "name": "Seafood Mushroom - Pasta, Scallop, Shrimp, Bell Pepper & Tomyum", "price": "220,000₫", "description": "Sợi mì nấm, sò điệp Nhật, tôm, ớt chuông sấy & xốt Tomyum" },
+    { "name": "Burrata, Green Grape, Parma Ham & Almond", "price": "250,000₫", "description": "Burrata, nho xanh, thịt ba chỉ muối, hạnh nhân và dầu oliu" },
+    { "name": "Japanese Oyster & Lemon Sorbet / Thyme Oil & Herbal Sorbet", "price": "120,000₫/pc", "description": "Hàu Nhật và xốt kem chanh vàng/hoặc xốt kem dầu cỏ xạ hương và thảo mộc" }
+  ],
+  "Hot Dish": [
+    { "name": "Iberico (140gr), Purple Cabbage, Sweet Potato, Olive", "price": "480,000₫", "description": "Thịt lợn chân đen Iberico Tây Ban Nha, bắp cải tím, khoai lang tím chiên, oliu" },
+    { "name": "Grilled Lamb Rack, Cauliflower, Caramelized Peanuts & Yellow Bell Pepper Purée", "price": "480,000₫", "description": "Dẻ sườn cừu nướng, bông cải trắng, đậu phộng ngào đường & ớt chuông vàng nghiền" },
+    { "name": "Wagyu Flank (140gr), Wegde Potatoes, Grilled King Mushroom, Truffle Aioli", "price": "520,000₫", "description": "Thịt bò Wagyu (140gr), khoai chiên ba lứa, nấm đùi gà, xốt tỏi truffle & tỏi đen nghiền" },
+    { "name": "Seared Wagyu Beef, Japanese Rice, Garlic Scapes & Quail Eggs", "price": "380,000₫", "description": "Thịt bò Wagyu thái lát khò, cơm Nhật, ngồng tỏi và trứng cút" },
+    { "name": "Truffle Carbonara", "price": "180,000₫", "description": "Mỳ Ý xốt kem nấm truffle và thịt lợn muối" },
+    { "name": "Small Meat Platter (160gr Iberico Pork & 250gr Flap Meat Angus)", "price": "880,000₫", "description": "Khay thịt cỡ nhỏ: Thịt lợn chân đen Tây Ban Nha & diềm bụng bò Angus" },
+    { "name": "Big Meat Platter (160gr Iberico Pork, 250gr Flap Meat Angus & Lamb Chops)", "price": "1,480,000₫", "description": "Khay thịt cỡ lớn: Thịt lợn chân đen Tây Ban Nha & diềm bụng bò Angus & dẻ sườn cừu" },
+    { "name": "Special Meat Plate & Raclette", "price": "1,380,000₫", "description": "Khay thịt đặc biệt ăn cùng phô mai Raclette" },
+    { "name": "Dry Aged Angus Striploin (portion from 300g)", "price": "280,000₫/100g", "description": "Thăn ngoại bò Angus ủ khô phần cắt từ 300g, khoai tây chiên 3 lứa, xốt tiêu, xốt húng tây" }
+  ],
+  "The Cheesier The Better": [
+    { "name": "Raclette Cheese & Cold Cut For Sharing", "price": "420,000₫", "description": "Khay Raclette với khoai tây xóc bơ tỏi, thịt nguội" },
+    { "name": "Flap Meat Angus (140gr), Raclette Cheese & Wegde Potatoes", "price": "480,000₫", "description": "Thịt bò Angus nướng, phô mai Raclette và khoai tây chiên 3 lứa" },
+    { "name": "Three Times Fried Wegde Potatoes, Raclette Cheese & Crumbled Bacon", "price": "250,000₫", "description": "Khoai tây chiên ba lứa xóc bơ tỏi, phô mai Raclette và thịt ba chỉ chiên giòn" },
+    { "name": "Sweet Potato, Guaciale, Honey & Goat Cheese", "price": "180,000₫", "description": "Khoai lang Nhật, thịt má heo muối kiểu Ý, mật ong, phô mai dê" }
+  ],
+  "Dessert": [
+    { "name": "Basque Burnt Cheesecake Truffle", "price": "120,000₫", "description": "Bánh phô mai cháy nấm Truffle" },
+    { "name": "Bread Pudding, Apricot Spirit Gelato", "price": "95,000₫", "description": "Pudding bánh mì, kem rượu mơ" },
+    { "name": "Homemade Gelato By ONLYON: Daily Flavors", "price": "85,000₫", "description": "Kem thủ công ONLYON: vị theo ngày" },
+    { "name": "Crème Brulée & Lotus Seed", "price": "80,000₫", "description": "Kem nướng đường vị hạt sen" }
+  ],
+  "Bruncho": [
+    { "name": "Standard Set Menu", "price": "560,000₫/pax", "description": "Free-flow Brunch at Pincho - Standard Set" },
+    { "name": "Premium Set Menu", "price": "680,000₫/pax", "description": "Free-flow Brunch at Pincho - Premium Set (Shrimp & Iberico & Wagyu included)" }
+  ],
+  "Drinks": [
+    { "name": "Pincho & Leo's Signature", "price": "150,000₫", "description": "Light Rum, Cucumber, Chili Syrup, Mint, Lime, Chili Flakes" },
+    { "name": "Junbucha Quất Nhài", "price": "120,000₫", "description": "Kumquat, Jasmine" },
+    { "name": "Junbucha Dâu Gừng", "price": "120,000₫", "description": "Mulberry, Ginger" },
+    { "name": "Junbucha Mơ Muối", "price": "120,000₫", "description": "Mộc Châu Apricot, Sea Salt" },
+    { "name": "Tea Selection", "price": "40,000₫", "description": "Chamomile, Jasmine, Earl Grey, Vietnamese Tea" },
+    { "name": "Coffee / Espresso", "price": "60,000₫", "description": "" },
+    { "name": "Craft Beer / Local Beers", "price": "from 50,000₫", "description": "Truc Bach, Heineken, 1664 Blanc, Labtory Craft Beer" }
+  ]
+}

@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  date: Date;
+  excerpt?: string;
+  image?: string;
+  href: string;
+}
+const { title, date, excerpt, image, href } = Astro.props;
+
+function formatDate(d: Date): string {
+  return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+}
+---
+
+<div class="blog-row animate animate--up">
+  <div class="blog-row__image">
+    {image ? (
+      <img src={image} alt={title} loading="lazy" decoding="async" />
+    ) : (
+      <div style="width:100%;height:100%;background:#e8e8e8;"></div>
+    )}
+  </div>
+  <div class="blog-row__content">
+    <span class="blog-row__date">{formatDate(date)}</span>
+    <h3 class="blog-row__title">{title}</h3>
+    {excerpt && <p class="blog-row__excerpt">{excerpt}</p>}
+    <a href={href} class="blog-row__link">Read More →</a>
+  </div>
+</div>

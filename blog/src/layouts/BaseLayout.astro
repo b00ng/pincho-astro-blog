@@ -1,0 +1,151 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  bodyClass?: string;
+}
+
+const {
+  title = 'Pincho — Tapas Kitchen & Drinks',
+  description = 'Fusion cuisine, modern tapas, and unforgettable dining experiences at 34C Cao Ba Quat, Ba Dinh, Hanoi.',
+  image = '/images/og-default.jpg',
+  bodyClass = '',
+} = Astro.props;
+
+const siteTitle = title.includes('Pincho') ? title : `${title} | Pincho`;
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/posts/', label: 'Blog' },
+  { href: '/menu/', label: 'Menu' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>{siteTitle}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body class={bodyClass}>
+  <!-- Sticky Navbar -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">Pincho<span>.</span></a>
+      <nav>
+        <ul class="site-nav">
+          {navLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class={currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) ? 'active' : ''}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav">
+    {navLinks.map(link => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </div>
+
+  <main>
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            {navLinks.map(link => (
+              <a href={link.href}>{link.label}</a>
+            ))}
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p>
+            <i class="fas fa-map-marker-alt contact-info__icon"></i> 34C Cao Ba Quat, Ba Dinh, Hanoi<br/>
+            <i class="fas fa-phone contact-info__icon"></i> <a href="tel:0949022882">0949.022.882</a><br/>
+            <i class="fas fa-envelope contact-info__icon"></i> <a href="mailto:contact@pincho.vn">contact@pincho.vn</a><br/>
+            <i class="fas fa-clock contact-info__icon"></i> Mon–Sun: 11:00 – 23:00
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="https://facebook.com/pincho.vn" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/pincho.vn" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/@pincho.vn" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} <strong>Pincho</strong> — Tapas Kitchen & Drinks. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger?.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileNav?.classList.toggle('open');
+      document.body.style.overflow = mobileNav?.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Navbar scroll shadow
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header?.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll animations via IntersectionObserver
+    const animEls = document.querySelectorAll('.animate');
+    if (animEls.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      animEls.forEach(el => observer.observe(el));
+    }
+  </script>
+</body>
+</html>
