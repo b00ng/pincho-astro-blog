@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ReservationForm from '../components/ReservationForm.astro';
+---
+
+<BaseLayout
+  title="Đặt bàn | Book a Table"
+  description="Đặt bàn trước tại Pincho — Tapas Kitchen & Drinks trong biệt thự Pháp cổ tại 34C Cao Bá Quát, Ba Đình, Hà Nội. Hotline: 0949.022.882."
+>
+  <PageHero title="Book A Table" />
+
+  <section class="section section--booking">
+    <div class="container">
+      <SectionHeader
+        title="Giữ chỗ cho khoảnh khắc"
+        accent="Đặc Biệt"
+        subtitle="Đặt bàn trước để đảm bảo trải nghiệm ẩm thực tapas & đồ uống tuyệt vời nhất tại Pincho"
+      />
+
+      <div class="booking-grid">
+        <!-- Left: Google Form Powered Reservation Form -->
+        <div class="booking-form-col animate animate--up">
+          <ReservationForm googleFormId="e/1FAIpQLSclTlFq-nZN3xKaWHlde1dTNANKSEan-QeQJCzhOIGjthW_zA" />
+        </div>
+
+        <!-- Right: Info Panel & Policies -->
+        <div class="booking-info-col animate animate--up">
+          <div class="info-card">
+            <h3><i class="fas fa-utensils info-icon"></i> Pincho Tapas Kitchen</h3>
+            <p class="info-tagline">
+              Ẩn mình trên các tầng cao của ngôi biệt thự Pháp cổ, Pincho mang đến không gian ẩm thực sang trọng, ấm cúng và khoảnh khắc thưởng thức tapas tuyệt hảo tại Hà Nội.
+            </p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <strong>Địa chỉ:</strong>
+                  <p>34C Cao Bá Quát, Ba Đình, Hà Nội</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                  <strong>Hotline đặt bàn:</strong>
+                  <p><a href="tel:0949022882" class="highlight-link">0949.022.882</a></p>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <strong>Giờ mở cửa:</strong>
+                  <p>Thứ Hai – Chủ Nhật: 11:00 – 23:00</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <strong>Email:</strong>
+                  <p><a href="mailto:contact@pincho.vn">contact@pincho.vn</a></p>
+                </div>
+              </div>
+            </div>
+
+            <hr class="info-divider" />
+
+            <div class="booking-tips">
+              <h4><i class="fas fa-info-circle tips-icon"></i> Lưu Ý Đặt Bàn:</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Vui lòng đặt bàn trước ít nhất <strong>2 giờ</strong> để chúng tôi chuẩn bị đón tiếp tốt nhất.</li>
+                <li><i class="fas fa-check"></i> Với đoàn từ <strong>10 khách trở lên</strong>, vui lòng đặt trước 1 ngày hoặc liên hệ trực tiếp hotline.</li>
+                <li><i class="fas fa-check"></i> Nhà hàng sẽ giữ bàn trong vòng <strong>15 phút</strong> so với giờ hẹn nếu không nhận được thông báo trễ.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Map Embed Box -->
+          <div class="booking-map-box">
+            <iframe
+              src="https://maps.google.com/maps?q=Pincho,%2034C%20Cao%20Ba%20Quat,%20Ba%20Dinh,%20Hanoi&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Pincho Location Map"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Structured Data JSON-LD for Search Engines -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Pincho — Tapas Kitchen & Drinks",
+      "image": "https://pincho.vn/images/og-default.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "34C Cao Ba Quat",
+        "addressLocality": "Ba Dinh",
+        "addressRegion": "Hanoi",
+        "addressCountry": "VN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 21.0315,
+        "longitude": 105.8385
+      },
+      "url": "https://pincho.vn/book-a-table/",
+      "telephone": "+84949022882",
+      "servesCuisine": ["Spanish", "Tapas", "Fusion"],
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "11:00",
+          "closes": "23:00"
+        }
+      ],
+      "acceptsReservations": "True"
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .section--booking {
+    background-color: var(--color-bg-alt);
+    padding-bottom: 100px;
+  }
+
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.9fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .info-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .info-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--color-heading);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .info-icon {
+    color: var(--color-accent);
+  }
+
+  .info-tagline {
+    font-size: 0.92rem;
+    color: var(--color-body);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 0.92rem;
+  }
+
+  .info-item i {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    margin-top: 3px;
+    width: 20px;
+  }
+
+  .info-item strong {
+    color: var(--color-heading);
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .info-item p {
+    margin: 0;
+    color: var(--color-body-dark);
+  }
+
+  .highlight-link {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  .info-divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 1.5rem 0;
+  }
+
+  .booking-tips h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tips-icon {
+    color: var(--color-accent);
+  }
+
+  .booking-tips ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .booking-tips li {
+    font-size: 0.88rem;
+    color: var(--color-body-dark);
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .booking-tips li i {
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+
+  .booking-map-box {
+    margin-top: 1.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    height: 240px;
+  }
+
+  .booking-map-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @media (max-width: 992px) {
+    .booking-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

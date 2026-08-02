@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import MenuItem from '../components/MenuItem.astro';
 import BlogCard from '../components/BlogCard.astro';
+import ReservationForm from '../components/ReservationForm.astro';
 
 import { getCollection } from 'astro:content';
 
@@ -36,7 +37,12 @@ const featuredMenu = [
           <i class="fas fa-crown"></i> 2022 Restaurant of the Year
         </span>
       </div>
-      <a href="/menu/" class="hero__cta animate animate--up">Explore Our Menu</a>
+      <div class="animate animate--up" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/book-a-table/" class="btn btn--primary" style="padding: 14px 36px; border-radius: 50px;">
+          <i class="far fa-calendar-alt" style="margin-right: 8px;"></i> Đặt Bàn Ngay
+        </a>
+        <a href="/menu/" class="hero__cta">Explore Our Menu</a>
+      </div>
     </div>
   </section>
 
@@ -64,8 +70,22 @@ const featuredMenu = [
     </div>
   </section>
 
+  <!-- Reservation Section on Homepage -->
+  <section class="section section--alt" id="reservation-section">
+    <div class="container">
+      <SectionHeader
+        title="Đặt Bàn"
+        accent="Trực Tuyến"
+        subtitle="Giữ chỗ trước để có trải nghiệm vị trí bàn đẹp nhất tại Pincho"
+      />
+      <div style="max-width: 800px; margin: 0 auto;" class="animate animate--up">
+        <ReservationForm googleFormId="e/1FAIpQLSclTlFq-nZN3xKaWHlde1dTNANKSEan-QeQJCzhOIGjthW_zA" />
+      </div>
+    </div>
+  </section>
+
   <!-- Blog Checkerboard -->
-  <section class="section section--alt">
+  <section class="section">
     <div class="container">
       <SectionHeader title="Our" accent="Stories" subtitle="Latest from Pincho's kitchen" />
     </div>
@@ -82,7 +102,6 @@ const featuredMenu = [
     </div>
     <a href="/posts/" class="btn btn--primary btn--center" style="margin-top: 2rem;">View All Stories</a>
   </section>
-
 
   <!-- Contact Strip -->
   <section class="section" style="padding: 0;">

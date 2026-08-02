@@ -84,6 +84,17 @@ ul { list-style: none; }
 .site-nav a:hover, .site-nav a.active { color: var(--color-accent); }
 .site-nav a:hover::after, .site-nav a.active::after { width: 100%; }
 
+.nav-container { display: flex; align-items: center; }
+.header-actions { display: flex; align-items: center; gap: 1rem; }
+.nav-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 20px; background: var(--color-accent); color: #fff;
+  border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  transition: var(--transition); box-shadow: 0 4px 12px rgba(230, 81, 0, 0.25);
+}
+.nav-cta-btn:hover { background: var(--color-accent-dark); color: #fff; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(230, 81, 0, 0.35); }
+
 /* Hamburger */
 .hamburger {
   display: none; background: none; border: none; cursor: pointer;
@@ -111,7 +122,7 @@ ul { list-style: none; }
   font-family: var(--font-display); font-size: 1.5rem; color: var(--color-heading);
   font-weight: 600;
 }
-.mobile-nav a:hover { color: var(--color-accent); }
+.mobile-nav a:hover, .mobile-nav a.active { color: var(--color-accent); }
 
 /* ── Hero Section ──────────────────────────────────────────── */
 .hero {
@@ -619,3 +630,26 @@ ul { list-style: none; }
   .section { padding: 60px 0; }
   .photo-stream { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* ── Floating Booking Button ───────────────────────────────── */
+.floating-booking-wrapper {
+  position: fixed; bottom: 24px; right: 24px; z-index: 990;
+}
+.floating-booking-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 24px; background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.9rem;
+  box-shadow: 0 10px 30px rgba(230, 81, 0, 0.4); border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.floating-booking-btn i { font-size: 1.1rem; }
+.floating-booking-btn:hover {
+  transform: translateY(-4px) scale(1.04); color: #fff;
+  box-shadow: 0 15px 35px rgba(230, 81, 0, 0.5);
+}
+@media (max-width: 768px) {
+  .floating-btn-text { display: none; }
+  .floating-booking-btn { padding: 14px; border-radius: 50%; width: 52px; height: 52px; justify-content: center; }
+  .nav-cta-btn { display: none; }
+}
+

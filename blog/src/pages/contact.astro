@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+import ReservationForm from '../components/ReservationForm.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('posts');
@@ -21,15 +22,20 @@ function formatDate(d: Date): string {
 }
 ---
 
-<BaseLayout title="Contact Us">
-  <PageHero title="Contact Us" />
+<BaseLayout title="Contact & Reservations">
+  <PageHero title="Contact & Reservations" />
 
   <section class="section">
     <div class="container">
-      <SectionHeader title="Get in" accent="Touch" subtitle="We'd love to hear from you" />
+      <SectionHeader title="Get in" accent="Touch" subtitle="Book your table or reach out to our team" />
+
+      <!-- Reservation Form embedded on Contact page -->
+      <div style="max-width: 800px; margin: 0 auto 4rem;" class="animate animate--up">
+        <ReservationForm googleFormId="e/1FAIpQLSclTlFq-nZN3xKaWHlde1dTNANKSEan-QeQJCzhOIGjthW_zA" />
+      </div>
 
       <!-- Map -->
-      <div class="contact-map animate animate--up" style="margin-top: 0; margin-bottom: 4rem;">
+      <div class="contact-map animate animate--up" style="margin-bottom: 4rem;">
         <iframe
           src="https://maps.google.com/maps?q=Pincho,%2034C%20Cao%20Ba%20Quat,%20Ba%20Dinh,%20Hanoi&t=&z=16&ie=UTF8&iwloc=&output=embed"
           allowfullscreen=""
@@ -78,8 +84,6 @@ function formatDate(d: Date): string {
           </div>
         </div>
       </div>
-
-
     </div>
   </section>
 </BaseLayout>

@@ -1,0 +1,511 @@
+---
+interface Props {
+  googleFormId?: string;
+}
+
+const { googleFormId = 'e/1FAIpQLSclTlFq-nZN3xKaWHlde1dTNANKSEan-QeQJCzhOIGjthW_zA' } = Astro.props;
+
+let formAction = '';
+if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
+  formAction = googleFormId.endsWith('/formResponse')
+    ? googleFormId
+    : `${googleFormId.replace(/\/viewform.*$/, '').replace(/\/edit.*$/, '')}/formResponse`;
+} else if (googleFormId.startsWith('e/')) {
+  formAction = `https://docs.google.com/forms/d/${googleFormId}/formResponse`;
+} else {
+  formAction = `https://docs.google.com/forms/d/${googleFormId}/formResponse`;
+}
+---
+
+<div class="reservation-card-wrapper" id="reservation-form-wrapper">
+  <!-- Hidden Iframe to handle Google Form submission without page reload -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <div class="reservation-card__header">
+    <h3 class="reservation-card__title">Thông Tin Đặt Bàn</h3>
+    <p class="reservation-card__subtitle">Vui lòng điền thông tin bên dưới. Chúng tôi sẽ liên hệ xác nhận trong vòng 30 phút.</p>
+  </div>
+
+  <!-- Reservation Form -->
+  <form
+    id="booking-form"
+    action={formAction}
+    method="POST"
+    target="hidden_iframe"
+    class="reservation-form"
+  >
+    <!-- Hidden fields for Google Forms split date/time -->
+    <input type="hidden" name="entry.410880708_year" id="gf-date-year" />
+    <input type="hidden" name="entry.410880708_month" id="gf-date-month" />
+    <input type="hidden" name="entry.410880708_day" id="gf-date-day" />
+    <input type="hidden" name="entry.1144860985_hour" id="gf-time-hour" />
+    <input type="hidden" name="entry.1144860985_minute" id="gf-time-minute" />
+
+    <!-- Date & Time Row -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="booking-date">
+          <i class="far fa-calendar-alt form-icon"></i> Ngày <span class="required">*</span>
+        </label>
+        <input type="date" id="booking-date" class="form-input" required />
+      </div>
+      <div class="form-group">
+        <label for="booking-time">
+          <i class="far fa-clock form-icon"></i> Giờ <span class="required">*</span>
+        </label>
+        <select id="booking-time" class="form-input form-select" required>
+          <option value="" disabled>Chọn giờ</option>
+          <optgroup label="Bữa Trưa (Lunch)">
+            <option value="11:00">11:00</option>
+            <option value="11:30">11:30</option>
+            <option value="12:00">12:00</option>
+            <option value="12:30">12:30</option>
+            <option value="13:00">13:00</option>
+            <option value="13:30">13:30</option>
+          </optgroup>
+          <optgroup label="Bữa Tối (Dinner)">
+            <option value="17:00">17:00</option>
+            <option value="17:30">17:30</option>
+            <option value="18:00">18:00</option>
+            <option value="18:30">18:30</option>
+            <option value="19:00" selected>19:00</option>
+            <option value="19:30">19:30</option>
+            <option value="20:00">20:00</option>
+            <option value="20:30">20:30</option>
+            <option value="21:00">21:00</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+
+    <!-- Name & Email Row -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="booking-name">
+          <i class="far fa-user form-icon"></i> Họ và tên <span class="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="booking-name"
+          name="entry.1791338729"
+          class="form-input"
+          placeholder="Nhập họ và tên của bạn"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="booking-email">
+          <i class="far fa-envelope form-icon"></i> Email <span class="required">*</span>
+        </label>
+        <input
+          type="email"
+          id="booking-email"
+          name="entry.786937168"
+          class="form-input"
+          placeholder="email@example.com"
+          required
+        />
+      </div>
+    </div>
+
+    <!-- Phone & Guests Row -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="booking-phone">
+          <i class="fas fa-phone-alt form-icon"></i> Số điện thoại <span class="required">*</span>
+        </label>
+        <input
+          type="tel"
+          id="booking-phone"
+          name="entry.396243041"
+          class="form-input"
+          placeholder="09xx-xxx-xxx"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="booking-guests">
+          <i class="fas fa-user-friends form-icon"></i> Số khách <span class="required">*</span>
+        </label>
+        <select id="booking-guests" name="entry.1567868327" class="form-input form-select" required>
+          <option value="" disabled>Chọn số khách</option>
+          <option value="1">1 khách</option>
+          <option value="2" selected>2 khách</option>
+          <option value="3">3 khách</option>
+          <option value="4">4 khách</option>
+          <option value="5">5 khách</option>
+          <option value="6">6 khách</option>
+          <option value="7">7 khách</option>
+          <option value="8">8 khách</option>
+          <option value="9">9 khách</option>
+          <option value="10">10 khách</option>
+          <option value="Trến 10 khách">Trên 10 khách (Đoàn lớn)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Space Preference -->
+    <div class="form-group">
+      <label for="booking-space">
+        <i class="fas fa-chair form-icon"></i> Không gian ưu tiên
+      </label>
+      <select id="booking-space" name="entry.1135802679" class="form-input form-select">
+        <option value="Để nhà hàng sắp xếp" selected>Để nhà hàng sắp xếp (Recommend)</option>
+        <option value="Main Dining — Tầng 2 & 3">Main Dining — Tầng 2 & 3 (Ấm cúng, lãng mạn)</option>
+        <option value="Rooftop Garden — Sân thượng">Rooftop Garden — Sân thượng (Thoáng mát, ngắm thành phố)</option>
+        <option value="Phòng VIP — Private Room">Phòng VIP — Private Room (Riêng tư, tiếp khách)</option>
+        <option value="Quầy Bar — Tapas Counter">Quầy Bar — Tapas Counter (Trải nghiệm xem quầy)</option>
+      </select>
+    </div>
+
+    <!-- Special Requests -->
+    <div class="form-group">
+      <label for="booking-notes">
+        <i class="far fa-sticky-note form-icon"></i> Ghi chú / Yêu cầu đặc biệt
+      </label>
+      <textarea
+        id="booking-notes"
+        name="entry.404132406"
+        class="form-textarea"
+        placeholder="Kỷ niệm ngày cưới, sinh nhật, yêu cầu vị trí bàn hoặc chế độ ăn đặc biệt…"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn--primary reservation-submit-btn" id="booking-submit">
+      <span class="submit-text"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Đặt Bàn Ngay</span>
+      <span class="submit-spinner" style="display: none;"><i class="fas fa-spinner fa-spin"></i> Đang gửi...</span>
+    </button>
+  </form>
+
+  <!-- Success Card State -->
+  <div class="reservation-success-card" id="reservation-success" style="display: none;">
+    <div class="success-icon-wrapper">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <h3>Đặt Bàn Thành Công!</h3>
+    <p class="success-msg">
+      Cảm ơn bạn đã lựa chọn <strong>Pincho — Tapas Kitchen & Drinks</strong>.
+      Đội ngũ chăm sóc khách hàng của chúng tôi sẽ gọi điện xác nhận đặt bàn của bạn trong vòng <strong>30 phút</strong>.
+    </p>
+
+    <div class="success-summary" id="success-summary">
+      <!-- Dynamically populated via JS -->
+    </div>
+
+    <div class="success-actions">
+      <a href="tel:0949022882" class="btn btn--outline"><i class="fas fa-phone-alt"></i> Gọi Hotline: 0949.022.882</a>
+      <button type="button" class="btn btn--primary" id="booking-reset">Đặt bàn khác</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Interactive client-side handling for date & split Google Form fields
+  const dateInput = document.getElementById('booking-date') as HTMLInputElement | null;
+  const timeInput = document.getElementById('booking-time') as HTMLSelectElement | null;
+  const nameInput = document.getElementById('booking-name') as HTMLInputElement | null;
+  const phoneInput = document.getElementById('booking-phone') as HTMLInputElement | null;
+  const guestsInput = document.getElementById('booking-guests') as HTMLSelectElement | null;
+
+  if (dateInput) {
+    const today = new Date();
+    const tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+
+    // Default to tomorrow's date
+    dateInput.value = tomorrow.toISOString().split('T')[0];
+    dateInput.min = today.toISOString().split('T')[0];
+  }
+
+  function syncGoogleFormSplitFields() {
+    if (dateInput && dateInput.value) {
+      const [year, month, day] = dateInput.value.split('-');
+      const yearEl = document.getElementById('gf-date-year') as HTMLInputElement;
+      const monthEl = document.getElementById('gf-date-month') as HTMLInputElement;
+      const dayEl = document.getElementById('gf-date-day') as HTMLInputElement;
+
+      if (yearEl) yearEl.value = year;
+      if (monthEl) monthEl.value = String(parseInt(month, 10));
+      if (dayEl) dayEl.value = String(parseInt(day, 10));
+    }
+
+    if (timeInput && timeInput.value) {
+      const [hour, minute] = timeInput.value.split(':');
+      const hourEl = document.getElementById('gf-time-hour') as HTMLInputElement;
+      const minuteEl = document.getElementById('gf-time-minute') as HTMLInputElement;
+
+      if (hourEl) hourEl.value = String(parseInt(hour, 10));
+      if (minuteEl) minuteEl.value = String(parseInt(minute, 10));
+    }
+  }
+
+  const bookingForm = document.getElementById('booking-form') as HTMLFormElement | null;
+  const wrapper = document.getElementById('reservation-form-wrapper');
+  const successCard = document.getElementById('reservation-success');
+  const successSummary = document.getElementById('success-summary');
+  const resetButton = document.getElementById('booking-reset');
+  const submitBtn = document.getElementById('booking-submit');
+
+  if (bookingForm && wrapper && successCard) {
+    bookingForm.addEventListener('submit', (e) => {
+      syncGoogleFormSplitFields();
+
+      // Show spinner on submit button
+      if (submitBtn) {
+        const textSpan = submitBtn.querySelector('.submit-text') as HTMLElement;
+        const spinnerSpan = submitBtn.querySelector('.submit-spinner') as HTMLElement;
+        if (textSpan) textSpan.style.display = 'none';
+        if (spinnerSpan) spinnerSpan.style.display = 'inline-block';
+        submitBtn.setAttribute('disabled', 'true');
+      }
+
+      // Populate summary details
+      if (successSummary) {
+        const formattedDate = dateInput?.value ? new Date(dateInput.value).toLocaleDateString('vi-VN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '';
+        successSummary.innerHTML = `
+          <div class="summary-item"><span><i class="far fa-user"></i> Khách hàng:</span> <strong>${nameInput?.value || ''}</strong></div>
+          <div class="summary-item"><span><i class="fas fa-phone-alt"></i> Số điện thoại:</span> <strong>${phoneInput?.value || ''}</strong></div>
+          <div class="summary-item"><span><i class="far fa-calendar-alt"></i> Ngày đặt:</span> <strong>${formattedDate}</strong></div>
+          <div class="summary-item"><span><i class="far fa-clock"></i> Giờ đón:</span> <strong>${timeInput?.value || ''}</strong></div>
+          <div class="summary-item"><span><i class="fas fa-user-friends"></i> Số khách:</span> <strong>${guestsInput?.value || ''}</strong></div>
+        `;
+      }
+
+      // Transition to success card after form post
+      setTimeout(() => {
+        bookingForm.style.display = 'none';
+        const cardHeader = wrapper.querySelector('.reservation-card__header') as HTMLElement;
+        if (cardHeader) cardHeader.style.display = 'none';
+        successCard.style.display = 'block';
+        successCard.classList.add('visible');
+      }, 600);
+    });
+  }
+
+  if (resetButton && bookingForm && wrapper && successCard) {
+    resetButton.addEventListener('click', () => {
+      bookingForm.reset();
+      bookingForm.style.display = 'block';
+      const cardHeader = wrapper.querySelector('.reservation-card__header') as HTMLElement;
+      if (cardHeader) cardHeader.style.display = 'block';
+      successCard.style.display = 'none';
+      successCard.classList.remove('visible');
+
+      if (submitBtn) {
+        const textSpan = submitBtn.querySelector('.submit-text') as HTMLElement;
+        const spinnerSpan = submitBtn.querySelector('.submit-spinner') as HTMLElement;
+        if (textSpan) textSpan.style.display = 'inline-block';
+        if (spinnerSpan) spinnerSpan.style.display = 'none';
+        submitBtn.removeAttribute('disabled');
+      }
+
+      if (dateInput) {
+        const tomorrow = new Date();
+        tomorrow.setDate(new Date().getDate() + 1);
+        dateInput.value = tomorrow.toISOString().split('T')[0];
+      }
+    });
+  }
+</script>
+
+<style>
+  .reservation-card-wrapper {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reservation-card__header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .reservation-card__title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 0.5rem;
+  }
+
+  .reservation-card__subtitle {
+    font-size: 0.95rem;
+    color: var(--color-body);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-icon {
+    color: var(--color-accent);
+    margin-right: 6px;
+  }
+
+  .required {
+    color: #e53935;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-heading);
+    background-color: #fff;
+    transition: all 0.25s ease;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--color-accent);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(230, 81, 0, 0.12);
+  }
+
+  .form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23E65100' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .reservation-submit-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(230, 81, 0, 0.25);
+  }
+
+  .reservation-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  /* Success Card Styling */
+  .reservation-success-card {
+    text-align: center;
+    padding: 1rem 0;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .success-icon-wrapper {
+    font-size: 4rem;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+    animation: bounce 0.6s ease;
+  }
+
+  .reservation-success-card h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-heading);
+    margin-bottom: 0.8rem;
+  }
+
+  .success-msg {
+    font-size: 1.05rem;
+    color: var(--color-body-dark);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .success-summary {
+    background: var(--color-bg-alt);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.92rem;
+    border-bottom: 1px dotted var(--color-border);
+  }
+
+  .summary-item:last-child {
+    border-bottom: none;
+  }
+
+  .summary-item span {
+    color: var(--color-body);
+  }
+
+  .summary-item strong {
+    color: var(--color-heading);
+  }
+
+  .success-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce {
+    0% { transform: scale(0.5); }
+    70% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  @media (max-width: 600px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+    .reservation-card-wrapper {
+      padding: 1.5rem;
+    }
+  }
+</style>

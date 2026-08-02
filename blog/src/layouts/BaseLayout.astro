@@ -24,6 +24,7 @@ const navLinks = [
   { href: '/posts/', label: 'Blog' },
   { href: '/menu/', label: 'Menu' },
   { href: '/contact/', label: 'Contact' },
+  { href: '/book-a-table/', label: 'Book a Table' },
 ];
 ---
 
@@ -50,7 +51,7 @@ const navLinks = [
   <header class="site-header" id="site-header">
     <div class="container">
       <a href="/" class="site-logo">Pincho<span>.</span></a>
-      <nav>
+      <nav class="nav-container">
         <ul class="site-nav">
           {navLinks.map(link => (
             <li>
@@ -64,22 +65,38 @@ const navLinks = [
           ))}
         </ul>
       </nav>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-actions">
+        <a href="/book-a-table/" class="nav-cta-btn">
+          <i class="far fa-calendar-alt"></i> Đặt Bàn
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobile-nav">
     {navLinks.map(link => (
-      <a href={link.href}>{link.label}</a>
+      <a href={link.href} class={currentPath === link.href ? 'active' : ''}>{link.label}</a>
     ))}
+    <a href="/book-a-table/" class="btn btn--primary" style="margin-top: 1rem; color: #fff;">
+      <i class="far fa-calendar-alt"></i> Đặt Bàn Ngay
+    </a>
   </div>
 
   <main>
     <slot />
   </main>
+
+  <!-- Floating Sticky Reservation Button for quick access -->
+  <div class="floating-booking-wrapper">
+    <a href="/book-a-table/" class="floating-booking-btn" title="Đặt bàn ngay">
+      <i class="fas fa-calendar-check"></i>
+      <span class="floating-btn-text">Đặt Bàn</span>
+    </a>
+  </div>
 
   <!-- Footer -->
   <footer class="site-footer">
