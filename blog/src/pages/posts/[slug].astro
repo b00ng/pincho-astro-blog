@@ -22,7 +22,7 @@ const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await render(post);
 
 function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat('en-US', {
+  return new Intl.DateTimeFormat('vi-VN', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
   }).format(date);
 }
@@ -32,12 +32,12 @@ const tags = post.data.tags || [];
 const galleryClass = `gallery__grid gallery__grid--${Math.min(images.length, 4)}`;
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} bodyClass="post-page">
+<BaseLayout lang="vi" title={post.data.title} description={post.data.description} bodyClass="post-page">
   <!-- Breadcrumb -->
   <div class="container" style="max-width: 800px;">
     <div class="breadcrumb">
-      <a href="/">Home</a><span>›</span>
-      <a href="/posts/">Stories</a><span>›</span>
+      <a href="/">Trang chủ</a><span>›</span>
+      <a href="/posts/">Bài viết</a><span>›</span>
       <span style="color: #78716c;">{post.data.title}</span>
     </div>
   </div>
@@ -89,7 +89,7 @@ const galleryClass = `gallery__grid gallery__grid--${Math.min(images.length, 4)}
     <div class="post-nav__item">
       {prevPost && (
         <a href={`/posts/${prevPost.id}/`}>
-          <span class="post-nav__label">← Previous</span>
+          <span class="post-nav__label">← Bài trước</span>
           <span class="post-nav__title">{prevPost.data.title}</span>
         </a>
       )}
@@ -97,7 +97,7 @@ const galleryClass = `gallery__grid gallery__grid--${Math.min(images.length, 4)}
     <div class="post-nav__item post-nav__item--next">
       {nextPost && (
         <a href={`/posts/${nextPost.id}/`}>
-          <span class="post-nav__label">Next →</span>
+          <span class="post-nav__label">Bài tiếp →</span>
           <span class="post-nav__title">{nextPost.data.title}</span>
         </a>
       )}

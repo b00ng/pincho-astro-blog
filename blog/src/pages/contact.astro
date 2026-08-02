@@ -10,7 +10,6 @@ const recentPosts = allPosts
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 4);
 
-// Collect gallery images from recent posts
 const galleryImages = allPosts
   .filter(p => p.data.images?.length)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
@@ -18,20 +17,20 @@ const galleryImages = allPosts
   .map(p => p.data.images[0]);
 
 function formatDate(d: Date): string {
-  return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(d);
+  return new Intl.DateTimeFormat('vi-VN', { year: 'numeric', month: 'short', day: 'numeric' }).format(d);
 }
 ---
 
-<BaseLayout title="Contact & Reservations">
-  <PageHero title="Contact & Reservations" />
+<BaseLayout lang="vi" title="Liên Hệ & Đặt Bàn | Pincho Tapas Kitchen">
+  <PageHero title="Liên Hệ & Đặt Bàn" />
 
   <section class="section">
     <div class="container">
-      <SectionHeader title="Get in" accent="Touch" subtitle="Book your table or reach out to our team" />
+      <SectionHeader title="Kết Nối Với" accent="Pincho" subtitle="Đặt bàn trực tuyến hoặc liên hệ trực tiếp với đội ngũ chăm sóc khách hàng" />
 
       <!-- Reservation Form embedded on Contact page -->
       <div style="max-width: 800px; margin: 0 auto 4rem;" class="animate animate--up">
-        <ReservationForm googleFormId="e/1FAIpQLSclTlFq-nZN3xKaWHlde1dTNANKSEan-QeQJCzhOIGjthW_zA" />
+        <ReservationForm lang="vi" googleFormId="e/1FAIpQLSclTlFq-nZN3xKaWHlde1dTNANKSEan-QeQJCzhOIGjthW_zA" />
       </div>
 
       <!-- Map -->
@@ -41,18 +40,18 @@ function formatDate(d: Date): string {
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Pincho location"
+          title="Bản đồ vị trí Pincho"
         ></iframe>
       </div>
 
       <!-- 3-Column Info -->
       <div class="contact-info animate animate--up">
         <div class="contact-info__item">
-          <h4><i class="fas fa-map-marker-alt contact-info__icon"></i> Visit Us</h4>
+          <h4><i class="fas fa-map-marker-alt contact-info__icon"></i> Ghé Thăm Pincho</h4>
           <p>
-            34C Cao Ba Quat<br />
-            Ba Dinh District, Hanoi<br />
-            <strong>Mon – Sun: 11:00 – 23:00</strong>
+            34C Cao Bá Quát<br />
+            Quận Ba Đình, Hà Nội<br />
+            <strong>Thứ 2 – Chủ Nhật: 11:00 – 23:00</strong>
           </p>
           <p style="margin-top: 1rem;">
             <i class="fas fa-phone contact-info__icon"></i> <a href="tel:0949022882">0949.022.882</a><br />
@@ -60,7 +59,7 @@ function formatDate(d: Date): string {
           </p>
         </div>
         <div class="contact-info__item">
-          <h4>Latest Posts</h4>
+          <h4>Bài Viết Mới Nhất</h4>
           <div class="mini-posts">
             {recentPosts.map(post => (
               <a href={`/posts/${post.id}/`} class="mini-post">
@@ -71,16 +70,16 @@ function formatDate(d: Date): string {
           </div>
         </div>
         <div class="contact-info__item">
-          <h4>Photo Stream</h4>
+          <h4>Hình Ảnh Pincho</h4>
           <div class="photo-stream">
             {galleryImages.map(src => (
-              <img src={src} alt="Pincho gallery" loading="lazy" />
+              <img src={src} alt="Hình ảnh Pincho" loading="lazy" />
             ))}
           </div>
           <div class="social-links">
-            <a href="https://facebook.com/pincho.vn" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://instagram.com/pincho.vn" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-            <a href="https://tiktok.com/@pincho.vn" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+            <a href="https://facebook.com/pincho.vn" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/pincho.vn" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/@pincho.vn" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
           </div>
         </div>
       </div>

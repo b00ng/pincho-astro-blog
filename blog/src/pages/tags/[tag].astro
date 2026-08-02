@@ -21,16 +21,16 @@ export async function getStaticPaths() {
 const { tag, posts } = Astro.props;
 
 function formatDate(d: Date): string {
-  return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+  return new Intl.DateTimeFormat('vi-VN', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
 }
 ---
 
-<BaseLayout title={`#${tag}`} bodyClass="post-page">
+<BaseLayout lang="vi" title={`#${tag}`} bodyClass="post-page">
   <div class="container" style="max-width: 1200px; padding-top: calc(var(--nav-height) + 2rem);">
-    <a href="/posts/" class="back-link" style="color: #a8a29e;">← Back to all stories</a>
+    <a href="/posts/" class="back-link" style="color: #a8a29e;">← Quay lại tất cả bài viết</a>
 
     <div class="tags-header" style="padding-top: 0;">
-      <h1>Posts tagged <span class="tag-highlight">#{tag}</span></h1>
+      <h1>Bài viết thẻ <span class="tag-highlight">#{tag}</span></h1>
     </div>
 
     <div class="posts-section">

@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const allTags = [...new Set(posts.flatMap(p => p.data.tags || []))];
+
+  return allTags.map(tag => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts
+        .filter(p => p.data.tags?.includes(tag))
+        .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()),
+    },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+
+function formatDate(d: Date): string {
+  return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+}
+---
+
+<BaseLayout lang="en" title={`#${tag}`} bodyClass="post-page">
+  <div class="container" style="max-width: 1200px; padding-top: calc(var(--nav-height) + 2rem);">
+    <a href="/en/posts/" class="back-link" style="color: #a8a29e;">← Back to all stories</a>
+
+    <div class="tags-header" style="padding-top: 0;">
+      <h1>Posts tagged <span class="tag-highlight">#{tag}</span></h1>
+    </div>
+
+    <div class="posts-section">
+      <div class="post-grid">
+        {posts.map(post => (
+          <a href={`/en/posts/${post.id}/`} class="post-card" id={`post-${post.id}`}>
+            {post.data.images?.length > 0 && (
+              <div class="post-card__image">
+                <img src={post.data.images[0]} alt={post.data.title} loading="lazy" decoding="async" />
+                {post.data.images.length > 1 && (
+                  <span class="post-card__image-count">📷 {post.data.images.length}</span>
+                )}
+              </div>
+            )}
+            <div class="post-card__body">
+              <time class="post-card__date" datetime={post.data.date.toISOString()}>
+                {formatDate(post.data.date)}
+              </time>
+              <h3 class="post-card__title">{post.data.title}</h3>
+              {post.data.description && (
+                <p class="post-card__excerpt">{post.data.description}</p>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseLayout>

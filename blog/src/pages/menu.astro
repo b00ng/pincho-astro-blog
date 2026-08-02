@@ -9,14 +9,14 @@ import menuData from '../data/menu.json';
 const categories = Object.keys(menuData);
 ---
 
-<BaseLayout title="Our Menu">
-  <PageHero title="Our Menu" />
+<BaseLayout lang="vi" title="Thực Đơn | Pincho Tapas Kitchen">
+  <PageHero title="Thực Đơn" />
 
   <section class="section">
     <div class="container">
       <!-- Category Tabs -->
       <div class="menu-tabs" id="menu-tabs">
-        <button class="menu-tab active" data-category="all">All</button>
+        <button class="menu-tab active" data-category="all">Tất cả</button>
         {categories.map(cat => (
           <button class="menu-tab" data-category={cat}>{cat}</button>
         ))}
@@ -41,16 +41,16 @@ const categories = Object.keys(menuData);
   <!-- PDF Menus -->
   <section class="section section--alt">
     <div class="container">
-      <SectionHeader title="Original PDF Menus" />
-      <p style="text-align: center; margin-bottom: 3rem; color: #666; font-size: 1.1rem;">View and download our beautifully designed original menus.</p>
-      
+      <SectionHeader title="Thực Đơn PDF Gốc" />
+      <p style="text-align: center; margin-bottom: 3rem; color: #666; font-size: 1.1rem;">Xem và tải xuống các menu thiết kế gốc của Pincho.</p>
+
       <div class="pdf-grid animate animate--up">
         <a href="/menu/PINCHO DAILY MENU.pdf" target="_blank" rel="noopener noreferrer" class="pdf-card">
           <div class="pdf-card__icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
           </div>
           <h3 class="pdf-card__title">Pincho Daily Menu</h3>
-          <span class="pdf-card__link">View Menu</span>
+          <span class="pdf-card__link">Xem Thực Đơn</span>
         </a>
 
         <a href="/menu/DRINK LIST PINCHO.pdf" target="_blank" rel="noopener noreferrer" class="pdf-card">
@@ -58,7 +58,7 @@ const categories = Object.keys(menuData);
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
           </div>
           <h3 class="pdf-card__title">Drink List</h3>
-          <span class="pdf-card__link">View Menu</span>
+          <span class="pdf-card__link">Xem Thực Đơn</span>
         </a>
 
         <a href="/menu/MENU PINCHO BRUNCHO.pdf" target="_blank" rel="noopener noreferrer" class="pdf-card">
@@ -66,7 +66,7 @@ const categories = Object.keys(menuData);
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
           </div>
           <h3 class="pdf-card__title">Pincho Bruncho</h3>
-          <span class="pdf-card__link">View Menu</span>
+          <span class="pdf-card__link">Xem Thực Đơn</span>
         </a>
 
         <a href="/menu/PINCHO-DRY-AGED-MEAT.pdf" target="_blank" rel="noopener noreferrer" class="pdf-card">
@@ -74,7 +74,7 @@ const categories = Object.keys(menuData);
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
           </div>
           <h3 class="pdf-card__title">Dry Aged Meat</h3>
-          <span class="pdf-card__link">View Menu</span>
+          <span class="pdf-card__link">Xem Thực Đơn</span>
         </a>
 
         <a href="/menu/PINCHO-BURRATA-BEATS-THE-HEAT.pdf" target="_blank" rel="noopener noreferrer" class="pdf-card">
@@ -82,7 +82,7 @@ const categories = Object.keys(menuData);
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
           </div>
           <h3 class="pdf-card__title">Burrata Beats The Heat</h3>
-          <span class="pdf-card__link">View Menu</span>
+          <span class="pdf-card__link">Xem Thực Đơn</span>
         </a>
 
         <a href="/menu/SPECIAL SET MENU.pdf" target="_blank" rel="noopener noreferrer" class="pdf-card">
@@ -90,7 +90,7 @@ const categories = Object.keys(menuData);
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
           </div>
           <h3 class="pdf-card__title">Special Set Menu</h3>
-          <span class="pdf-card__link">View Menu</span>
+          <span class="pdf-card__link">Xem Thực Đơn</span>
         </a>
       </div>
     </div>
@@ -101,15 +101,15 @@ const categories = Object.keys(menuData);
     <div class="container">
       <div class="chef-special animate animate--up">
         <div class="chef-special__image">
-          <img src="/images/posts/1185517783769780.jpg" alt="Chef's Special" loading="lazy" />
+          <img src="/images/posts/1185517783769780.jpg" alt="Trải Nghiệm Raclette" loading="lazy" />
         </div>
         <div>
-          <span class="chef-special__badge">Chef's Special</span>
-          <h3 class="chef-special__title">Raclette Experience</h3>
+          <span class="chef-special__badge">Gợi Ý Từ Đầu Bếp</span>
+          <h3 class="chef-special__title">Trải Nghiệm Raclette Phomai</h3>
           <p class="chef-special__desc">
-            Our signature raclette platter features premium Swiss raclette cheese melted tableside over a curated selection of Iberico ham, smoked meats, baby potatoes, and pickled vegetables. Perfect for sharing with friends and family.
+            Khay Raclette đặc trưng của chúng tôi với phomai Thụy Sĩ tan chảy ngay tại bàn phủ lên đĩa thịt nguội Iberico tuyển chọn, thịt hun khói, khoai tây bi và rau củ muối chua. Hoàn hảo để chia sẻ cùng bạn bè và gia đình.
           </p>
-          <span class="chef-special__price">495,000₫ for two</span>
+          <span class="chef-special__price">495,000₫ cho hai người</span>
         </div>
       </div>
     </div>

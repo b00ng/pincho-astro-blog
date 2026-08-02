@@ -2,30 +2,29 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHeader from '../components/SectionHeader.astro';
-
 ---
 
-<BaseLayout title="About Us">
-  <PageHero title="About Us" />
+<BaseLayout lang="vi" title="Giới Thiệu | Pincho Tapas Kitchen">
+  <PageHero title="Về Chúng Tôi" />
 
   <!-- Our Story -->
   <section class="section">
     <div class="container">
       <div class="about-story">
         <div class="about-story__text animate animate--left">
-          <h3>Our <span style="color: var(--color-accent);">Story</span></h3>
+          <h3>Câu Chuyện <span style="color: var(--color-accent);">Của Pincho</span></h3>
           <p>
-            Pincho was born from a simple dream — to bring the joyful, communal spirit of Spanish tapas culture to the heart of Hanoi. Nestled inside a beautifully restored French colonial villa at 34C Cao Ba Quat, our space blends old-world charm with contemporary warmth.
+            Pincho ra đời từ giấc mơ mang tinh thần văn hóa tapas Tây Ban Nha ấm cúng, rộng mở và kết nối đến với trái tim thành phố Hà Nội. Ẩn mình bên trong ngôi biệt thự Pháp cổ được trùng tu tại số 34C Cao Bá Quát, không gian Pincho giao thoa giữa nét cổ kính thanh lịch và sự ấm áp hiện đại.
           </p>
           <p>
-            Led by Chef Hào Nguyễn, our kitchen creates bold fusion dishes that bridge the flavors of Spain, France, and Vietnam. From hand-selected Wagyu beef to artisan Raclette cheese, every ingredient tells a story of craftsmanship and passion.
+            Dưới sự dẫn dắt của Bếp trưởng Hào Nguyễn, căn bếp của chúng tôi sáng tạo nên những món ăn fusion độc đáo, kết nối tinh hoa ẩm thực Tây Ban Nha, Pháp và Việt Nam. Từ thịt bò Wagyu chọn lọc thủ công đến phomai Raclette thượng hạng, mỗi nguyên liệu đều gửi gắm sự tâm huyết và đam mê ẩm thực.
           </p>
           <p>
-            Whether you're gathering for a weekend Bruncho, an intimate dinner, or a festive celebration, Pincho is your place to slow down, share plates, and create unforgettable moments.
+            Dù bạn ghé thăm cho buổi tiệc cuối tuần Bruncho, một bữa tối lãng mạn hay buổi kỷ niệm đáng nhớ, Pincho luôn là nơi lý tưởng để chậm lại, cùng chia sẻ từng đĩa thức ăn ngon và lưu giữ những khoảnh khắc tuyệt vời.
           </p>
         </div>
         <div class="about-story__image animate animate--right">
-          <img src="/images/posts/1185517787103113.jpg" alt="Inside Pincho restaurant" loading="lazy" />
+          <img src="/images/posts/1185517787103113.jpg" alt="Không gian nhà hàng Pincho" loading="lazy" />
         </div>
       </div>
     </div>
@@ -37,19 +36,19 @@ import SectionHeader from '../components/SectionHeader.astro';
       <div class="stats">
         <div class="animate animate--bounce">
           <div class="stat__number" data-count="8">0</div>
-          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Years Open</div>
+          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Năm Phục Vụ</div>
         </div>
         <div class="animate animate--bounce">
           <div class="stat__number" data-count="300">0</div>
-          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Tapas & Dishes</div>
+          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Món Tapas & Đồ Uống</div>
         </div>
         <div class="animate animate--bounce">
           <div class="stat__number" data-count="50000">0</div>
-          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Happy Guests</div>
+          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Thực Khách Hài Lòng</div>
         </div>
         <div class="animate animate--bounce">
           <div class="stat__number" data-count="15">0</div>
-          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Team Members</div>
+          <div class="stat__label" style="color: rgba(255,255,255,0.7);">Thành Viên Đội Ngũ</div>
         </div>
       </div>
     </div>
@@ -58,7 +57,7 @@ import SectionHeader from '../components/SectionHeader.astro';
   <!-- Team -->
   <section class="section section--alt">
     <div class="container">
-      <SectionHeader title="Meet Our" accent="Team" subtitle="The people behind every plate" />
+      <SectionHeader title="Đội Ngũ" accent="Pincho" subtitle="Những con người phía sau mỗi hương vị tuyệt vời" />
       <div class="team-grid">
         <div class="team-card animate animate--up">
           <img class="team-card__photo" src="/images/posts/1185517790436446.jpg" alt="Chef Hào Nguyễn" loading="lazy" />
@@ -66,14 +65,14 @@ import SectionHeader from '../components/SectionHeader.astro';
           <p class="team-card__role">Head Chef</p>
         </div>
         <div class="team-card animate animate--up">
-          <img class="team-card__photo" src="/images/posts/1185517793769779.jpg" alt="Restaurant Manager" loading="lazy" />
+          <img class="team-card__photo" src="/images/posts/1185517793769779.jpg" alt="Đội ngũ phục vụ" loading="lazy" />
           <h4 class="team-card__name">Pincho Team</h4>
-          <p class="team-card__role">Service & Hospitality</p>
+          <p class="team-card__role">Phục vụ & Chăm sóc khách hàng</p>
         </div>
         <div class="team-card animate animate--up">
-          <img class="team-card__photo" src="/images/posts/1185517787103113.jpg" alt="Bar Team" loading="lazy" />
+          <img class="team-card__photo" src="/images/posts/1185517787103113.jpg" alt="Đội ngũ pha chế" loading="lazy" />
           <h4 class="team-card__name">The Bar</h4>
-          <p class="team-card__role">Mixology & Wine</p>
+          <p class="team-card__role">Mixology & Rượu Vang</p>
         </div>
       </div>
     </div>
@@ -83,13 +82,11 @@ import SectionHeader from '../components/SectionHeader.astro';
   <section class="parallax-section" style="background-image: url('/images/posts/1185517790436446.jpg')">
     <div class="parallax-section__content">
       <p class="parallax-section__quote">
-        "Cooking is about sharing. Every dish we create at Pincho is an invitation to gather around the table and celebrate life together."
+        "Nấu ăn là sự chia sẻ. Mỗi món ăn chúng tôi tạo ra tại Pincho chính là một lời mời gọi bạn tụ họp quanh bàn ăn và cùng nhau tận hưởng trọn vẹn niềm vui cuộc sống."
       </p>
-      <p class="parallax-section__author">— Chef Hào Nguyễn</p>
+      <p class="parallax-section__author">— Bếp Trưởng Hào Nguyễn</p>
     </div>
   </section>
-
-
 </BaseLayout>
 
 <script>

@@ -6,6 +6,7 @@ interface Props {
   description?: string;
   image?: string;
   bodyClass?: string;
+  lang?: 'vi' | 'en';
 }
 
 const {
@@ -13,23 +14,51 @@ const {
   description = 'Fusion cuisine, modern tapas, and unforgettable dining experiences at 34C Cao Ba Quat, Ba Dinh, Hanoi.',
   image = '/images/og-default.jpg',
   bodyClass = '',
+  lang,
 } = Astro.props;
 
-const siteTitle = title.includes('Pincho') ? title : `${title} | Pincho`;
 const currentPath = Astro.url.pathname;
+const isEnPath = currentPath.startsWith('/en/') || currentPath === '/en';
+const currentLang = lang || (isEnPath ? 'en' : 'vi');
+const isEn = currentLang === 'en';
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about/', label: 'About' },
-  { href: '/posts/', label: 'Blog' },
-  { href: '/menu/', label: 'Menu' },
-  { href: '/contact/', label: 'Contact' },
-  { href: '/book-a-table/', label: 'Book a Table' },
+// Calculate VI and EN path equivalents
+let rawPath = currentPath;
+if (!rawPath.endsWith('/') && !rawPath.includes('.')) {
+  rawPath += '/';
+}
+const viPath = isEnPath ? (rawPath.replace(/^\/en/, '') || '/') : rawPath;
+const enPath = isEnPath ? rawPath : (rawPath === '/' ? '/en/' : '/en' + rawPath);
+
+const siteTitle = title.includes('Pincho') ? title : `${title} | Pincho`;
+
+const navLinksVi = [
+  { href: '/', label: 'Trang chủ' },
+  { href: '/about/', label: 'Giới thiệu' },
+  { href: '/posts/', label: 'Bài viết' },
+  { href: '/menu/', label: 'Thực đơn' },
+  { href: '/contact/', label: 'Liên hệ' },
+  { href: '/book-a-table/', label: 'Đặt bàn' },
 ];
+
+const navLinksEn = [
+  { href: '/en/', label: 'Home' },
+  { href: '/en/about/', label: 'About' },
+  { href: '/en/posts/', label: 'Blog' },
+  { href: '/en/menu/', label: 'Menu' },
+  { href: '/en/contact/', label: 'Contact' },
+  { href: '/en/book-a-table/', label: 'Book a Table' },
+];
+
+const navLinks = isEn ? navLinksEn : navLinksVi;
+const homeHref = isEn ? '/en/' : '/';
+const bookingHref = isEn ? '/en/book-a-table/' : '/book-a-table/';
+const bookingBtnLabel = isEn ? 'Book a Table' : 'Đặt Bàn';
+const bookingBtnLongLabel = isEn ? 'Book a Table Now' : 'Đặt Bàn Ngay';
 ---
 
 <!DOCTYPE html>
-<html lang="vi">
+<html lang={currentLang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,14 +79,14 @@ const navLinks = [
   <!-- Sticky Navbar -->
   <header class="site-header" id="site-header">
     <div class="container">
-      <a href="/" class="site-logo">Pincho<span>.</span></a>
+      <a href={homeHref} class="site-logo">Pincho<span>.</span></a>
       <nav class="nav-container">
         <ul class="site-nav">
           {navLinks.map(link => (
             <li>
               <a
                 href={link.href}
-                class={currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) ? 'active' : ''}
+                class={currentPath === link.href || (link.href !== '/' && link.href !== '/en/' && currentPath.startsWith(link.href)) ? 'active' : ''}
               >
                 {link.label}
               </a>
@@ -66,8 +95,19 @@ const navLinks = [
         </ul>
       </nav>
       <div class="header-actions">
-        <a href="/book-a-table/" class="nav-cta-btn">
-          <i class="far fa-calendar-alt"></i> Đặt Bàn
+        <!-- EN/VI Selection Menu -->
+        <div class="lang-switcher" aria-label="Language selection">
+          <a href={viPath} class={`lang-btn ${!isEn ? 'active' : ''}`} title="Tiếng Việt">
+            <span class="flag">🇻🇳</span> VI
+          </a>
+          <span class="lang-divider">|</span>
+          <a href={enPath} class={`lang-btn ${isEn ? 'active' : ''}`} title="English">
+            <span class="flag">🇬🇧</span> EN
+          </a>
+        </div>
+
+        <a href={bookingHref} class="nav-cta-btn">
+          <i class="far fa-calendar-alt"></i> {bookingBtnLabel}
         </a>
         <button class="hamburger" id="hamburger" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -78,11 +118,21 @@ const navLinks = [
 
   <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-lang-switcher" aria-label="Mobile Language Selection">
+      <a href={viPath} class={`lang-btn ${!isEn ? 'active' : ''}`}>
+        <span class="flag">🇻🇳</span> Tiếng Việt
+      </a>
+      <span class="lang-divider">|</span>
+      <a href={enPath} class={`lang-btn ${isEn ? 'active' : ''}`}>
+        <span class="flag">🇬🇧</span> English
+      </a>
+    </div>
+
     {navLinks.map(link => (
       <a href={link.href} class={currentPath === link.href ? 'active' : ''}>{link.label}</a>
     ))}
-    <a href="/book-a-table/" class="btn btn--primary" style="margin-top: 1rem; color: #fff;">
-      <i class="far fa-calendar-alt"></i> Đặt Bàn Ngay
+    <a href={bookingHref} class="btn btn--primary" style="margin-top: 1rem; color: #fff;">
+      <i class="far fa-calendar-alt"></i> {bookingBtnLongLabel}
     </a>
   </div>
 
@@ -92,9 +142,9 @@ const navLinks = [
 
   <!-- Floating Sticky Reservation Button for quick access -->
   <div class="floating-booking-wrapper">
-    <a href="/book-a-table/" class="floating-booking-btn" title="Đặt bàn ngay">
+    <a href={bookingHref} class="floating-booking-btn" title={bookingBtnLongLabel}>
       <i class="fas fa-calendar-check"></i>
-      <span class="floating-btn-text">Đặt Bàn</span>
+      <span class="floating-btn-text">{bookingBtnLabel}</span>
     </a>
   </div>
 
@@ -103,7 +153,7 @@ const navLinks = [
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h4>Quick Links</h4>
+          <h4>{isEn ? 'Quick Links' : 'Liên Kết Nhanh'}</h4>
           <div class="footer-links">
             {navLinks.map(link => (
               <a href={link.href}>{link.label}</a>
@@ -111,16 +161,16 @@ const navLinks = [
           </div>
         </div>
         <div class="footer-col">
-          <h4>Contact Info</h4>
+          <h4>{isEn ? 'Contact Info' : 'Thông Tin Liên Hệ'}</h4>
           <p>
             <i class="fas fa-map-marker-alt contact-info__icon"></i> 34C Cao Ba Quat, Ba Dinh, Hanoi<br/>
             <i class="fas fa-phone contact-info__icon"></i> <a href="tel:0949022882">0949.022.882</a><br/>
             <i class="fas fa-envelope contact-info__icon"></i> <a href="mailto:contact@pincho.vn">contact@pincho.vn</a><br/>
-            <i class="fas fa-clock contact-info__icon"></i> Mon–Sun: 11:00 – 23:00
+            <i class="fas fa-clock contact-info__icon"></i> {isEn ? 'Mon–Sun: 11:00 – 23:00' : 'Thứ 2 – Chủ Nhật: 11:00 – 23:00'}
           </p>
         </div>
         <div class="footer-col">
-          <h4>Follow Us</h4>
+          <h4>{isEn ? 'Follow Us' : 'Theo Dõi Pincho'}</h4>
           <div class="social-links">
             <a href="https://facebook.com/pincho.vn" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="https://instagram.com/pincho.vn" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -129,7 +179,7 @@ const navLinks = [
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} <strong>Pincho</strong> — Tapas Kitchen & Drinks. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} <strong>Pincho</strong> — Tapas Kitchen & Drinks. {isEn ? 'All rights reserved.' : 'Bản quyền thuộc về Pincho.'}</p>
       </div>
     </div>
   </footer>
@@ -166,3 +216,4 @@ const navLinks = [
   </script>
 </body>
 </html>
+

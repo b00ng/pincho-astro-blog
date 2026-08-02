@@ -1,9 +1,15 @@
 ---
 interface Props {
   googleFormId?: string;
+  lang?: 'vi' | 'en';
 }
 
-const { googleFormId = 'e/1FAIpQLSclTlFq-nZN3xKaWHlde1dTNANKSEan-QeQJCzhOIGjthW_zA' } = Astro.props;
+const {
+  googleFormId = 'e/1FAIpQLSclTlFq-nZN3xKaWHlde1dTNANKSEan-QeQJCzhOIGjthW_zA',
+  lang = 'vi',
+} = Astro.props;
+
+const isEn = lang === 'en';
 
 let formAction = '';
 if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
@@ -22,8 +28,12 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
   <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
   <div class="reservation-card__header">
-    <h3 class="reservation-card__title">Thông Tin Đặt Bàn</h3>
-    <p class="reservation-card__subtitle">Vui lòng điền thông tin bên dưới. Chúng tôi sẽ liên hệ xác nhận trong vòng 30 phút.</p>
+    <h3 class="reservation-card__title">{isEn ? 'Reservation Information' : 'Thông Tin Đặt Bàn'}</h3>
+    <p class="reservation-card__subtitle">
+      {isEn
+        ? 'Please fill in your reservation details below. Our team will contact you within 30 minutes.'
+        : 'Vui lòng điền thông tin bên dưới. Chúng tôi sẽ liên hệ xác nhận trong vòng 30 phút.'}
+    </p>
   </div>
 
   <!-- Reservation Form -->
@@ -45,17 +55,17 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
     <div class="form-row">
       <div class="form-group">
         <label for="booking-date">
-          <i class="far fa-calendar-alt form-icon"></i> Ngày <span class="required">*</span>
+          <i class="far fa-calendar-alt form-icon"></i> {isEn ? 'Date' : 'Ngày'} <span class="required">*</span>
         </label>
         <input type="date" id="booking-date" class="form-input" required />
       </div>
       <div class="form-group">
         <label for="booking-time">
-          <i class="far fa-clock form-icon"></i> Giờ <span class="required">*</span>
+          <i class="far fa-clock form-icon"></i> {isEn ? 'Time' : 'Giờ'} <span class="required">*</span>
         </label>
         <select id="booking-time" class="form-input form-select" required>
-          <option value="" disabled>Chọn giờ</option>
-          <optgroup label="Bữa Trưa (Lunch)">
+          <option value="" disabled>{isEn ? 'Select time' : 'Chọn giờ'}</option>
+          <optgroup label={isEn ? 'Lunch' : 'Bữa Trưa (Lunch)'}>
             <option value="11:00">11:00</option>
             <option value="11:30">11:30</option>
             <option value="12:00">12:00</option>
@@ -63,7 +73,7 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
             <option value="13:00">13:00</option>
             <option value="13:30">13:30</option>
           </optgroup>
-          <optgroup label="Bữa Tối (Dinner)">
+          <optgroup label={isEn ? 'Dinner' : 'Bữa Tối (Dinner)'}>
             <option value="17:00">17:00</option>
             <option value="17:30">17:30</option>
             <option value="18:00">18:00</option>
@@ -82,14 +92,14 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
     <div class="form-row">
       <div class="form-group">
         <label for="booking-name">
-          <i class="far fa-user form-icon"></i> Họ và tên <span class="required">*</span>
+          <i class="far fa-user form-icon"></i> {isEn ? 'Full Name' : 'Họ và tên'} <span class="required">*</span>
         </label>
         <input
           type="text"
           id="booking-name"
           name="entry.1791338729"
           class="form-input"
-          placeholder="Nhập họ và tên của bạn"
+          placeholder={isEn ? 'Enter your full name' : 'Nhập họ và tên của bạn'}
           required
         />
       </div>
@@ -112,7 +122,7 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
     <div class="form-row">
       <div class="form-group">
         <label for="booking-phone">
-          <i class="fas fa-phone-alt form-icon"></i> Số điện thoại <span class="required">*</span>
+          <i class="fas fa-phone-alt form-icon"></i> {isEn ? 'Phone Number' : 'Số điện thoại'} <span class="required">*</span>
         </label>
         <input
           type="tel"
@@ -125,21 +135,21 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
       </div>
       <div class="form-group">
         <label for="booking-guests">
-          <i class="fas fa-user-friends form-icon"></i> Số khách <span class="required">*</span>
+          <i class="fas fa-user-friends form-icon"></i> {isEn ? 'Number of Guests' : 'Số khách'} <span class="required">*</span>
         </label>
         <select id="booking-guests" name="entry.1567868327" class="form-input form-select" required>
-          <option value="" disabled>Chọn số khách</option>
-          <option value="1">1 khách</option>
-          <option value="2" selected>2 khách</option>
-          <option value="3">3 khách</option>
-          <option value="4">4 khách</option>
-          <option value="5">5 khách</option>
-          <option value="6">6 khách</option>
-          <option value="7">7 khách</option>
-          <option value="8">8 khách</option>
-          <option value="9">9 khách</option>
-          <option value="10">10 khách</option>
-          <option value="Trến 10 khách">Trên 10 khách (Đoàn lớn)</option>
+          <option value="" disabled>{isEn ? 'Select guests' : 'Chọn số khách'}</option>
+          <option value="1">{isEn ? '1 guest' : '1 khách'}</option>
+          <option value="2" selected>{isEn ? '2 guests' : '2 khách'}</option>
+          <option value="3">{isEn ? '3 guests' : '3 khách'}</option>
+          <option value="4">{isEn ? '4 guests' : '4 khách'}</option>
+          <option value="5">{isEn ? '5 guests' : '5 khách'}</option>
+          <option value="6">{isEn ? '6 guests' : '6 khách'}</option>
+          <option value="7">{isEn ? '7 guests' : '7 khách'}</option>
+          <option value="8">{isEn ? '8 guests' : '8 khách'}</option>
+          <option value="9">{isEn ? '9 guests' : '9 khách'}</option>
+          <option value="10">{isEn ? '10 guests' : '10 khách'}</option>
+          <option value="Trên 10 khách">{isEn ? 'Over 10 guests (Large group)' : 'Trên 10 khách (Đoàn lớn)'}</option>
         </select>
       </div>
     </div>
@@ -147,35 +157,35 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
     <!-- Space Preference -->
     <div class="form-group">
       <label for="booking-space">
-        <i class="fas fa-chair form-icon"></i> Không gian ưu tiên
+        <i class="fas fa-chair form-icon"></i> {isEn ? 'Seating Preference' : 'Không gian ưu tiên'}
       </label>
       <select id="booking-space" name="entry.1135802679" class="form-input form-select">
-        <option value="Để nhà hàng sắp xếp" selected>Để nhà hàng sắp xếp (Recommend)</option>
-        <option value="Main Dining — Tầng 2 & 3">Main Dining — Tầng 2 & 3 (Ấm cúng, lãng mạn)</option>
-        <option value="Rooftop Garden — Sân thượng">Rooftop Garden — Sân thượng (Thoáng mát, ngắm thành phố)</option>
-        <option value="Phòng VIP — Private Room">Phòng VIP — Private Room (Riêng tư, tiếp khách)</option>
-        <option value="Quầy Bar — Tapas Counter">Quầy Bar — Tapas Counter (Trải nghiệm xem quầy)</option>
+        <option value="Để nhà hàng sắp xếp" selected>{isEn ? 'Let restaurant arrange (Recommended)' : 'Để nhà hàng sắp xếp (Recommend)'}</option>
+        <option value="Main Dining — Tầng 2 & 3">{isEn ? 'Main Dining — 2nd & 3rd Floor (Cozy & Romantic)' : 'Main Dining — Tầng 2 & 3 (Ấm cúng, lãng mạn)'}</option>
+        <option value="Rooftop Garden — Sân thượng">{isEn ? 'Rooftop Garden (Open air & City view)' : 'Rooftop Garden — Sân thượng (Thoáng mát, ngắm thành phố)'}</option>
+        <option value="Phòng VIP — Private Room">{isEn ? 'VIP Room — Private Room (Private & Business)' : 'Phòng VIP — Private Room (Riêng tư, tiếp khách)'}</option>
+        <option value="Quầy Bar — Tapas Counter">{isEn ? 'Bar Counter — Tapas Counter (Chef view)' : 'Quầy Bar — Tapas Counter (Trải nghiệm xem quầy)'}</option>
       </select>
     </div>
 
     <!-- Special Requests -->
     <div class="form-group">
       <label for="booking-notes">
-        <i class="far fa-sticky-note form-icon"></i> Ghi chú / Yêu cầu đặc biệt
+        <i class="far fa-sticky-note form-icon"></i> {isEn ? 'Special Requests / Notes' : 'Ghi chú / Yêu cầu đặc biệt'}
       </label>
       <textarea
         id="booking-notes"
         name="entry.404132406"
         class="form-textarea"
-        placeholder="Kỷ niệm ngày cưới, sinh nhật, yêu cầu vị trí bàn hoặc chế độ ăn đặc biệt…"
+        placeholder={isEn ? 'Anniversary, birthday, seating preference or dietary requirements...' : 'Kỷ niệm ngày cưới, sinh nhật, yêu cầu vị trí bàn hoặc chế độ ăn đặc biệt…'}
         rows="3"
       ></textarea>
     </div>
 
     <!-- Submit Button -->
     <button type="submit" class="btn btn--primary reservation-submit-btn" id="booking-submit">
-      <span class="submit-text"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Đặt Bàn Ngay</span>
-      <span class="submit-spinner" style="display: none;"><i class="fas fa-spinner fa-spin"></i> Đang gửi...</span>
+      <span class="submit-text"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i> {isEn ? 'Book Table Now' : 'Đặt Bàn Ngay'}</span>
+      <span class="submit-spinner" style="display: none;"><i class="fas fa-spinner fa-spin"></i> {isEn ? 'Submitting...' : 'Đang gửi...'}</span>
     </button>
   </form>
 
@@ -184,10 +194,13 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
     <div class="success-icon-wrapper">
       <i class="fas fa-check-circle"></i>
     </div>
-    <h3>Đặt Bàn Thành Công!</h3>
+    <h3>{isEn ? 'Reservation Successful!' : 'Đặt Bàn Thành Công!'}</h3>
     <p class="success-msg">
-      Cảm ơn bạn đã lựa chọn <strong>Pincho — Tapas Kitchen & Drinks</strong>.
-      Đội ngũ chăm sóc khách hàng của chúng tôi sẽ gọi điện xác nhận đặt bàn của bạn trong vòng <strong>30 phút</strong>.
+      {isEn ? (
+        <>Thank you for choosing <strong>Pincho — Tapas Kitchen & Drinks</strong>. Our customer care team will call you within <strong>30 minutes</strong> to confirm your reservation.</>
+      ) : (
+        <>Cảm ơn bạn đã lựa chọn <strong>Pincho — Tapas Kitchen & Drinks</strong>. Đội ngũ chăm sóc khách hàng của chúng tôi sẽ gọi điện xác nhận đặt bàn của bạn trong vòng <strong>30 phút</strong>.</>
+      )}
     </p>
 
     <div class="success-summary" id="success-summary">
@@ -195,26 +208,25 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
     </div>
 
     <div class="success-actions">
-      <a href="tel:0949022882" class="btn btn--outline"><i class="fas fa-phone-alt"></i> Gọi Hotline: 0949.022.882</a>
-      <button type="button" class="btn btn--primary" id="booking-reset">Đặt bàn khác</button>
+      <a href="tel:0949022882" class="btn btn--outline"><i class="fas fa-phone-alt"></i> {isEn ? 'Call Hotline: 0949.022.882' : 'Gọi Hotline: 0949.022.882'}</a>
+      <button type="button" class="btn btn--primary" id="booking-reset">{isEn ? 'Book another table' : 'Đặt bàn khác'}</button>
     </div>
   </div>
 </div>
 
-<script>
+<script define:vars={{ isEn }}>
   // Interactive client-side handling for date & split Google Form fields
-  const dateInput = document.getElementById('booking-date') as HTMLInputElement | null;
-  const timeInput = document.getElementById('booking-time') as HTMLSelectElement | null;
-  const nameInput = document.getElementById('booking-name') as HTMLInputElement | null;
-  const phoneInput = document.getElementById('booking-phone') as HTMLInputElement | null;
-  const guestsInput = document.getElementById('booking-guests') as HTMLSelectElement | null;
+  const dateInput = document.getElementById('booking-date');
+  const timeInput = document.getElementById('booking-time');
+  const nameInput = document.getElementById('booking-name');
+  const phoneInput = document.getElementById('booking-phone');
+  const guestsInput = document.getElementById('booking-guests');
 
   if (dateInput) {
     const today = new Date();
     const tomorrow = new Date();
     tomorrow.setDate(today.getDate() + 1);
 
-    // Default to tomorrow's date
     dateInput.value = tomorrow.toISOString().split('T')[0];
     dateInput.min = today.toISOString().split('T')[0];
   }
@@ -222,9 +234,9 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
   function syncGoogleFormSplitFields() {
     if (dateInput && dateInput.value) {
       const [year, month, day] = dateInput.value.split('-');
-      const yearEl = document.getElementById('gf-date-year') as HTMLInputElement;
-      const monthEl = document.getElementById('gf-date-month') as HTMLInputElement;
-      const dayEl = document.getElementById('gf-date-day') as HTMLInputElement;
+      const yearEl = document.getElementById('gf-date-year');
+      const monthEl = document.getElementById('gf-date-month');
+      const dayEl = document.getElementById('gf-date-day');
 
       if (yearEl) yearEl.value = year;
       if (monthEl) monthEl.value = String(parseInt(month, 10));
@@ -233,15 +245,15 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
 
     if (timeInput && timeInput.value) {
       const [hour, minute] = timeInput.value.split(':');
-      const hourEl = document.getElementById('gf-time-hour') as HTMLInputElement;
-      const minuteEl = document.getElementById('gf-time-minute') as HTMLInputElement;
+      const hourEl = document.getElementById('gf-time-hour');
+      const minuteEl = document.getElementById('gf-time-minute');
 
       if (hourEl) hourEl.value = String(parseInt(hour, 10));
       if (minuteEl) minuteEl.value = String(parseInt(minute, 10));
     }
   }
 
-  const bookingForm = document.getElementById('booking-form') as HTMLFormElement | null;
+  const bookingForm = document.getElementById('booking-form');
   const wrapper = document.getElementById('reservation-form-wrapper');
   const successCard = document.getElementById('reservation-success');
   const successSummary = document.getElementById('success-summary');
@@ -252,31 +264,43 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
     bookingForm.addEventListener('submit', (e) => {
       syncGoogleFormSplitFields();
 
-      // Show spinner on submit button
       if (submitBtn) {
-        const textSpan = submitBtn.querySelector('.submit-text') as HTMLElement;
-        const spinnerSpan = submitBtn.querySelector('.submit-spinner') as HTMLElement;
+        const textSpan = submitBtn.querySelector('.submit-text');
+        const spinnerSpan = submitBtn.querySelector('.submit-spinner');
         if (textSpan) textSpan.style.display = 'none';
         if (spinnerSpan) spinnerSpan.style.display = 'inline-block';
         submitBtn.setAttribute('disabled', 'true');
       }
 
-      // Populate summary details
       if (successSummary) {
-        const formattedDate = dateInput?.value ? new Date(dateInput.value).toLocaleDateString('vi-VN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '';
+        const locale = isEn ? 'en-US' : 'vi-VN';
+        const formattedDate = dateInput?.value ? new Date(dateInput.value).toLocaleDateString(locale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '';
+        const labels = isEn ? {
+          customer: 'Customer:',
+          phone: 'Phone:',
+          date: 'Date:',
+          time: 'Time:',
+          guests: 'Guests:',
+        } : {
+          customer: 'Khách hàng:',
+          phone: 'Số điện thoại:',
+          date: 'Ngày đặt:',
+          time: 'Giờ đón:',
+          guests: 'Số khách:',
+        };
+
         successSummary.innerHTML = `
-          <div class="summary-item"><span><i class="far fa-user"></i> Khách hàng:</span> <strong>${nameInput?.value || ''}</strong></div>
-          <div class="summary-item"><span><i class="fas fa-phone-alt"></i> Số điện thoại:</span> <strong>${phoneInput?.value || ''}</strong></div>
-          <div class="summary-item"><span><i class="far fa-calendar-alt"></i> Ngày đặt:</span> <strong>${formattedDate}</strong></div>
-          <div class="summary-item"><span><i class="far fa-clock"></i> Giờ đón:</span> <strong>${timeInput?.value || ''}</strong></div>
-          <div class="summary-item"><span><i class="fas fa-user-friends"></i> Số khách:</span> <strong>${guestsInput?.value || ''}</strong></div>
+          <div class="summary-item"><span><i class="far fa-user"></i> ${labels.customer}</span> <strong>${nameInput?.value || ''}</strong></div>
+          <div class="summary-item"><span><i class="fas fa-phone-alt"></i> ${labels.phone}</span> <strong>${phoneInput?.value || ''}</strong></div>
+          <div class="summary-item"><span><i class="far fa-calendar-alt"></i> ${labels.date}</span> <strong>${formattedDate}</strong></div>
+          <div class="summary-item"><span><i class="far fa-clock"></i> ${labels.time}</span> <strong>${timeInput?.value || ''}</strong></div>
+          <div class="summary-item"><span><i class="fas fa-user-friends"></i> ${labels.guests}</span> <strong>${guestsInput?.value || ''}</strong></div>
         `;
       }
 
-      // Transition to success card after form post
       setTimeout(() => {
         bookingForm.style.display = 'none';
-        const cardHeader = wrapper.querySelector('.reservation-card__header') as HTMLElement;
+        const cardHeader = wrapper.querySelector('.reservation-card__header');
         if (cardHeader) cardHeader.style.display = 'none';
         successCard.style.display = 'block';
         successCard.classList.add('visible');
@@ -288,14 +312,14 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
     resetButton.addEventListener('click', () => {
       bookingForm.reset();
       bookingForm.style.display = 'block';
-      const cardHeader = wrapper.querySelector('.reservation-card__header') as HTMLElement;
+      const cardHeader = wrapper.querySelector('.reservation-card__header');
       if (cardHeader) cardHeader.style.display = 'block';
       successCard.style.display = 'none';
       successCard.classList.remove('visible');
 
       if (submitBtn) {
-        const textSpan = submitBtn.querySelector('.submit-text') as HTMLElement;
-        const spinnerSpan = submitBtn.querySelector('.submit-spinner') as HTMLElement;
+        const textSpan = submitBtn.querySelector('.submit-text');
+        const spinnerSpan = submitBtn.querySelector('.submit-spinner');
         if (textSpan) textSpan.style.display = 'inline-block';
         if (spinnerSpan) spinnerSpan.style.display = 'none';
         submitBtn.removeAttribute('disabled');
