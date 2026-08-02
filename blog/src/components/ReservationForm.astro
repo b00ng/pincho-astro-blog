@@ -5,7 +5,7 @@ interface Props {
 }
 
 const {
-  googleFormId = 'e/1FAIpQLSclTlFq-nZN3xKaWHlde1dTNANKSEan-QeQJCzhOIGjthW_zA',
+  googleFormId = 'e/1FAIpQLSetdH6CAmUu1UjvhfWAACyTnxU15-4CKu7y4jrTnbdVj93I7w',
   lang = 'vi',
 } = Astro.props;
 
@@ -159,7 +159,7 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
       <label for="booking-space">
         <i class="fas fa-chair form-icon"></i> {isEn ? 'Seating Preference' : 'Không gian ưu tiên'}
       </label>
-      <select id="booking-space" name="entry.1135802679" class="form-input form-select">
+      <select id="booking-space" class="form-input form-select">
         <option value="Để nhà hàng sắp xếp" selected>{isEn ? 'Let restaurant arrange (Recommended)' : 'Để nhà hàng sắp xếp (Recommend)'}</option>
         <option value="Main Dining — Tầng 2 & 3">{isEn ? 'Main Dining — 2nd & 3rd Floor (Cozy & Romantic)' : 'Main Dining — Tầng 2 & 3 (Ấm cúng, lãng mạn)'}</option>
         <option value="Rooftop Garden — Sân thượng">{isEn ? 'Rooftop Garden (Open air & City view)' : 'Rooftop Garden — Sân thượng (Thoáng mát, ngắm thành phố)'}</option>
@@ -250,6 +250,19 @@ if (googleFormId.startsWith('http://') || googleFormId.startsWith('https://')) {
 
       if (hourEl) hourEl.value = String(parseInt(hour, 10));
       if (minuteEl) minuteEl.value = String(parseInt(minute, 10));
+    }
+
+    const spaceInput = document.getElementById('booking-space');
+    const notesInput = document.getElementById('booking-notes');
+    if (spaceInput && notesInput) {
+      const spaceVal = spaceInput.value;
+      if (spaceVal && spaceVal !== 'Để nhà hàng sắp xếp') {
+        const currentNotes = notesInput.value.trim();
+        const prefix = `[Khu vực: ${spaceVal}]`;
+        if (!currentNotes.startsWith(prefix)) {
+          notesInput.value = currentNotes ? `${prefix} ${currentNotes}` : prefix;
+        }
+      }
     }
   }
 
