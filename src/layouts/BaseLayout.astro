@@ -36,7 +36,8 @@ const navLinksVi = [
   { href: '/', label: 'Trang chủ' },
   { href: '/about/', label: 'Giới thiệu' },
   { href: '/posts/', label: 'Bài viết' },
-  { href: '/menu/', label: 'Thực đơn' },
+  { href: '/menu/', label: 'A La Carte' },
+  { href: '/menu/brunch/', label: 'Set / Brunch' },
   { href: '/contact/', label: 'Liên hệ' },
   { href: '/book-a-table/', label: 'Đặt bàn' },
 ];
@@ -45,7 +46,8 @@ const navLinksEn = [
   { href: '/en/', label: 'Home' },
   { href: '/en/about/', label: 'About' },
   { href: '/en/posts/', label: 'Blog' },
-  { href: '/en/menu/', label: 'Menu' },
+  { href: '/en/menu/', label: 'A La Carte' },
+  { href: '/en/menu/brunch/', label: 'Set / Brunch' },
   { href: '/en/contact/', label: 'Contact' },
   { href: '/en/book-a-table/', label: 'Book a Table' },
 ];
@@ -153,28 +155,25 @@ const bookingBtnLongLabel = isEn ? 'Book a Table Now' : 'Đặt Bàn Ngay';
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h4>{isEn ? 'Quick Links' : 'Liên Kết Nhanh'}</h4>
-          <div class="footer-links">
-            {navLinks.map(link => (
-              <a href={link.href}>{link.label}</a>
-            ))}
-          </div>
         </div>
         <div class="footer-col">
           <h4>{isEn ? 'Contact Info' : 'Thông Tin Liên Hệ'}</h4>
           <p>
             <i class="fas fa-map-marker-alt contact-info__icon"></i> 34C Cao Ba Quat, Ba Dinh, Hanoi<br/>
-            <i class="fas fa-phone contact-info__icon"></i> <a href="tel:0949022882">0949.022.882</a><br/>
+            <i class="fas fa-phone contact-info__icon"></i> <a href="tel:+84949022882">+84 949.022.882</a><br/>
             <i class="fas fa-envelope contact-info__icon"></i> <a href="mailto:contact@pincho.vn">contact@pincho.vn</a><br/>
             <i class="fas fa-clock contact-info__icon"></i> {isEn ? 'Mon–Sun: 11:00 – 23:00' : 'Thứ 2 – Chủ Nhật: 11:00 – 23:00'}
           </p>
         </div>
         <div class="footer-col">
           <h4>{isEn ? 'Follow Us' : 'Theo Dõi Pincho'}</h4>
+          <p style="margin-bottom: 0.8rem; line-height: 1.8;">
+            <i class="fab fa-facebook-f contact-info__icon"></i> <strong>Facebook:</strong> <a href="https://www.facebook.com/Pincho.vn/" target="_blank" rel="noopener">Pincho.vn</a><br/>
+            <i class="fab fa-instagram contact-info__icon"></i> <strong>Instagram:</strong> <a href="https://www.instagram.com/pincho.tapaskitchen/" target="_blank" rel="noopener">pincho.tapaskitchen</a>
+          </p>
           <div class="social-links">
-            <a href="https://facebook.com/pincho.vn" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://instagram.com/pincho.vn" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://tiktok.com/@pincho.vn" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/Pincho.vn/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/pincho.tapaskitchen/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
       </div>
