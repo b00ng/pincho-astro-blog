@@ -1,0 +1,619 @@
+{
+  "wine_by_glass": {
+    "title_en": "Wine by Glass",
+    "title_vi": "Rượu Vang Theo Ly",
+    "sections": [
+      {
+        "title": "White Wine",
+        "subtitle_vi": "Vang Trắng Theo Ly",
+        "items": [
+          {
+            "name": "CALABRIA, THE WALL / Australia",
+            "grape": "Chardonnay",
+            "glass": "150,000₫",
+            "bottle": "750,000₫"
+          },
+          {
+            "name": "BODEGA CASTANO YECLA / Spain",
+            "grape": "Chardonnay, Macabeo",
+            "glass": "170,000₫",
+            "bottle": "850,000₫"
+          },
+          {
+            "name": "CASTILLO DE MONSERAN / Spain",
+            "grape": "Garnacha Blanca",
+            "glass": "190,000₫",
+            "bottle": "950,000₫"
+          }
+        ]
+      },
+      {
+        "title": "Red Wine",
+        "subtitle_vi": "Vang Đỏ Theo Ly",
+        "items": [
+          {
+            "name": "CASA SUBERCASEAUX / Chile",
+            "grape": "Cabernet Sauvignon",
+            "glass": "150,000₫",
+            "bottle": "750,000₫"
+          },
+          {
+            "name": "COMTE DESCLOS / France",
+            "grape": "Merlot, Cabernet Sauvignon, Cabernet Franc",
+            "glass": "170,000₫",
+            "bottle": "850,000₫"
+          },
+          {
+            "name": "CASTILLO DE MONSERAN / Spain",
+            "grape": "Garnacha",
+            "glass": "190,000₫",
+            "bottle": "950,000₫"
+          }
+        ]
+      },
+      {
+        "title": "Sweet Wine",
+        "subtitle_vi": "Vang Ngọt Theo Ly",
+        "items": [
+          {
+            "name": "DEEN VAT 5, LATE HARVEST 37.5CL / Australia",
+            "grape": "Botrytis Sémillion",
+            "glass": "170,000₫",
+            "bottle": "850,000₫"
+          }
+        ]
+      }
+    ]
+  },
+  "wine_by_bottle": {
+    "title_en": "Wine by Bottle",
+    "title_vi": "Rượu Vang Theo Chai",
+    "sections": [
+      {
+        "category": "Champagne & Sparkling Wine",
+        "subtitle_vi": "Sâm Banh & Rượu Vang Nổ",
+        "items": [
+          {
+            "name": "BOTTEGA, “GOLD” PROSECCO DOC 20CL / Italy",
+            "grape": "Glera (20cl)",
+            "bottle": "550,000₫"
+          },
+          {
+            "name": "LA GIOIOSA PROSECCO TREVISO / Italy",
+            "grape": "Glera",
+            "bottle": "1,000,000₫"
+          },
+          {
+            "name": "CODORNIU, CLASICO SPARKLING BRUT DO CAVA / Spain",
+            "grape": "Maccabeo, Xerel - lo, Parellada",
+            "bottle": "1,300,000₫"
+          },
+          {
+            "name": "GUSTAVE LORENTZ CRÉMANT D'ALSACE BRUT / France",
+            "grape": "Pinot Blanc, Pinot Noir, Chardonnay, Pinot Gris",
+            "bottle": "1,600,000₫"
+          },
+          {
+            "name": "CHAMPAGNE CHARLES HEIDSIECK / France",
+            "grape": "Chardonnay, Pinot Noir, Pinot Meunier",
+            "bottle": "3,500,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "CHAMPAGNE POL ROGER BRUT / France",
+            "grape": "Pinot Noir, Chardonnay, Pinot Meunier",
+            "bottle": "3,900,000₫",
+            "sommelier": true
+          }
+        ]
+      },
+      {
+        "category": "Rose & Sweet Wine",
+        "subtitle_vi": "Rượu Vang Hồng & Vang Ngọt",
+        "items": [
+          {
+            "name": "MARQUES DE CACERES SATINELA SEMI DULCE, RIOJA / Spain",
+            "grape": "Viura (Off Dry)",
+            "bottle": "1,000,000₫"
+          },
+          {
+            "name": "CHAMBRE D'AMOUR / France",
+            "grape": "Gros Manseng, Sauvignon Blanc",
+            "bottle": "1,200,000₫"
+          },
+          {
+            "name": "GERARD BERTRAND COTE DES ROSES ROSÉ AOP / France",
+            "grape": "Grenache, Cinsault, Syrah",
+            "bottle": "1,400,000₫"
+          }
+        ]
+      },
+      {
+        "category": "White Wine — Crisp & Refreshing",
+        "subtitle_vi": "Vang Trắng — Tươi Mát & Sảng Khoái",
+        "items": [
+          {
+            "name": "KAIKEN ESTATE / Argentina",
+            "grape": "Sauvignon Blanc, Semillion",
+            "bottle": "1,100,000₫"
+          },
+          {
+            "name": "LA PETITE PERRIERE / France",
+            "grape": "Sauvignon Blanc",
+            "bottle": "1,200,000₫"
+          },
+          {
+            "name": "TORRES, VINA ESMERALDA SEMI DRY WHITE, CATALUNYA DO / Spain",
+            "grape": "Moscatel, Gewurztraminer",
+            "bottle": "1,300,000₫"
+          },
+          {
+            "name": "BY JOSH SCOTT \"YEAH COOL\" NATURAL / New Zealand",
+            "grape": "Sauvignon Blanc",
+            "bottle": "1,400,000₫"
+          },
+          {
+            "name": "GUNDERLOCH \"VILLA\" / Germany",
+            "grape": "Riesling",
+            "bottle": "1,500,000₫"
+          },
+          {
+            "name": "GREYWACKE / New Zealand",
+            "grape": "Sauvignon Blanc",
+            "bottle": "1,500,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "GUSTAVE LORENTZ / France",
+            "grape": "Riesling",
+            "bottle": "1,500,000₫"
+          },
+          {
+            "name": "CHÂTEAU DE TRACY, POUILLY FUMÉ / France",
+            "grape": "Sauvignon Blanc",
+            "bottle": "2,200,000₫",
+            "sommelier": true
+          }
+        ]
+      },
+      {
+        "category": "White Wine — Round & Aromatic",
+        "subtitle_vi": "Vang Trắng — Đậm Đà & Ngát Hương",
+        "items": [
+          {
+            "name": "ARZUAGA PAGO MOTA / Spain",
+            "grape": "Chardonnay",
+            "bottle": "1,000,000₫"
+          },
+          {
+            "name": "MAISON CASTEL, VIN DE FRANCE / France",
+            "grape": "Chardonnay",
+            "bottle": "1,100,000₫"
+          },
+          {
+            "name": "LOUIS LATOUR, MÂCON LUGNY / France",
+            "grape": "Chardonnay",
+            "bottle": "1,600,000₫"
+          },
+          {
+            "name": "MONTES ALPHA / Chile",
+            "grape": "Chardonnay",
+            "bottle": "1,600,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "BESTHEIM CHASSEURS DE LUNE COLLECTION / France",
+            "grape": "Gewurztraminer",
+            "bottle": "1,700,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "DOMAINE COUAMAIS VOUVRAY L'ALCÔVE / France",
+            "grape": "Chenin Blanc",
+            "bottle": "2,000,000₫"
+          },
+          {
+            "name": "ASTROLABE MARLBOROUGH / New Zealand",
+            "grape": "Sauvignon Blanc",
+            "bottle": "2,000,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "DOMAINE LAROCHE, CHABLIS, LES CHANOINES / France",
+            "grape": "Chardonnay",
+            "bottle": "2,200,000₫",
+            "sommelier": true
+          }
+        ]
+      },
+      {
+        "category": "Red Wine — Light & Fruity",
+        "subtitle_vi": "Vang Đỏ — Nhẹ Nhàng & Hương Quả Mọng",
+        "items": [
+          {
+            "name": "TRACY & CIE-IGP, VAL DE LOIRE RED / France",
+            "grape": "Pinot Noir",
+            "bottle": "1,200,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "BY JOSH SCOTT \"DEAL WITH IT\" NATURAL / New Zealand",
+            "grape": "Pinot Noir",
+            "bottle": "1,400,000₫"
+          },
+          {
+            "name": "VIGNERONS DE BUXY CÔTE CHALONNAISE BUISSONNIER / France",
+            "grape": "Pinot Noir",
+            "bottle": "1,500,000₫"
+          }
+        ]
+      },
+      {
+        "category": "Red Wine — Spicy & Savory",
+        "subtitle_vi": "Vang Đỏ — Thảo Mộc & Đậm Vị",
+        "items": [
+          {
+            "name": "TORRES, ALTOS IBERICOS CRIANZA, RIOJA DOCA / Spain",
+            "grape": "Tempranillo",
+            "bottle": "1,300,000₫"
+          },
+          {
+            "name": "DOMAINE SOLEYRADE / France",
+            "grape": "Grenache, Syrah",
+            "bottle": "1,300,000₫"
+          },
+          {
+            "name": "ARZUAGA \"LA PLANTA\" RIBERA DEL DUERO / Spain",
+            "grape": "Tempranillo",
+            "bottle": "1,300,000₫"
+          },
+          {
+            "name": "RUFFINO CHIANTI / Italy",
+            "grape": "Sangiovese, Merlot, Cabernet Sauvignon",
+            "bottle": "1,500,000₫"
+          },
+          {
+            "name": "GIVRY 1ER CRU LA GRANDE BERGE / France",
+            "grape": "Pinot Noir",
+            "bottle": "3,000,000₫",
+            "sommelier": true
+          }
+        ]
+      },
+      {
+        "category": "Red Wine — Bold & Powerful",
+        "subtitle_vi": "Vang Đỏ — Mạnh Mẽ & Nồng Nàn",
+        "items": [
+          {
+            "name": "CHATEAU CLOU DU PIN BORDEAUX / France",
+            "grape": "Cabernet Sauvignon, Merlot, Cabernet Franc",
+            "bottle": "1,000,000₫"
+          },
+          {
+            "name": "CASILLERO DEL DIABLO RESERVA / Chile",
+            "grape": "Carmenere",
+            "bottle": "1,300,000₫"
+          },
+          {
+            "name": "WOODBRIDGE ROBERT MONDAVI / United States",
+            "grape": "Cabernet Sauvignon",
+            "bottle": "1,300,000₫"
+          },
+          {
+            "name": "CROCUS L'ATELIER / France",
+            "grape": "Malbec",
+            "bottle": "1,400,000₫"
+          },
+          {
+            "name": "BARON PHILIPPE DE ROTHSCHILD MOUTON CADET RESERVE HAUT-MÉDOC / France",
+            "grape": "Cabernet Sauvignon, Merlot",
+            "bottle": "1,600,000₫"
+          },
+          {
+            "name": "CHATEAU BEGADAN \"CRU BOURGEOIS\" / France",
+            "grape": "Cabernet Sauvignon, Merlot",
+            "bottle": "1,600,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "KAIKEN ULTRA / Argentina",
+            "grape": "Malbec",
+            "bottle": "1,600,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "MONTES ALPHA / Chile",
+            "grape": "Syrah",
+            "bottle": "1,600,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "LE GRAND NOIR LES RESERVES ROUGE / France",
+            "grape": "Grenache, Syrah",
+            "bottle": "1,700,000₫"
+          },
+          {
+            "name": "LEEUWIN ESTATE SIBLINGS / Australia",
+            "grape": "Shiraz",
+            "bottle": "2,000,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "CHATEAU HAUT SAINT BRICE SAINT EMILION GRAND CRU / France",
+            "grape": "Cabernet Sauvignon, Merlot, Cabernet Franc",
+            "bottle": "2,000,000₫"
+          },
+          {
+            "name": "FINCA SAN MARTIN CRIANZA / Spain",
+            "grape": "Tempranillo",
+            "bottle": "2,100,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "SAN MARZANO \"F\" / Italy",
+            "grape": "Negroamaro",
+            "bottle": "2,300,000₫"
+          },
+          {
+            "name": "DELAS LES LAUNES CROZES - HERMITAGE / France",
+            "grape": "Marsanne, Syrah",
+            "bottle": "2,500,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "CHATEAU HAUT VIGNOBLE SEGUIN ST ESTEPHE / France",
+            "grape": "Merlot, Cabernet Sauvignon",
+            "bottle": "2,500,000₫"
+          },
+          {
+            "name": "RIOJA ALTA VINA ALBERDI RESERVA / Spain",
+            "grape": "Tempranillo",
+            "bottle": "2,500,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "MICHELE CHIARLO PALÀS BAROLO / Italy",
+            "grape": "Nebbiolo",
+            "bottle": "3,400,000₫",
+            "sommelier": true
+          },
+          {
+            "name": "STARMONT NAPA VALLEY / United States",
+            "grape": "Cabernet Sauvignon",
+            "bottle": "3,500,000₫"
+          },
+          {
+            "name": "CHATEAU HAUT BAGES MONPELAU PAUILLAC / France",
+            "grape": "Cabernet Sauvignon, Merlot",
+            "bottle": "3,600,000₫",
+            "sommelier": true
+          }
+        ]
+      }
+    ]
+  },
+  "sangria_cocktails": {
+    "title_en": "Cocktails & Sangria",
+    "title_vi": "Cocktail & Sangria",
+    "sangria": {
+      "title_en": "Save Water, Drink Sangria",
+      "title_vi": "Save Water, Drink Sangria",
+      "items": [
+        {
+          "name": "RED SANGRIA",
+          "price_small": "140,000₫",
+          "price_big": "240,000₫",
+          "ingredients": "Red wine, Cinamon, Brandy, Fresh fruit, top up with Sprite",
+          "ingredients_vi": "Rượu vang đỏ, quế, rượu brandy, trái cây tươi, thêm Sprite"
+        },
+        {
+          "name": "WHITE SANGRIA",
+          "price_small": "140,000₫",
+          "price_big": "240,000₫",
+          "ingredients": "White wine, Rum, Mint, Fresh fruit, top up with Sprite",
+          "ingredients_vi": "Rượu vang trắng, rượu rum, lá bạc hà, trái cây tươi, thêm Sprite"
+        }
+      ]
+    },
+    "signature": {
+      "title_en": "Signature Cocktail",
+      "title_vi": "Cocktail Đặc Trưng",
+      "items": [
+        {
+          "name": "PINCHO & LEO'S SIGNATURE",
+          "price": "150,000₫",
+          "ingredients": "Light Rum, Cucumber, Chili Syrup, Mint, Lime, Chili Flakes",
+          "ingredients_vi": "Rượu Light Rum, dưa chuột tươi, siro ớt, bạc hà, chanh, ớt bột",
+          "badge": "LEO'S — Best Bar in Vietnam 2023"
+        }
+      ]
+    },
+    "classics": {
+      "title_en": "Classic Cocktails",
+      "title_vi": "Cocktail Cổ Điển",
+      "items": [
+        {
+          "name": "MARGARITA",
+          "price": "120,000₫",
+          "ingredients": "Tequila, Cointreau, Lime Juice, Sugar Syrup",
+          "ingredients_vi": "Rượu Tequila, rượu mùi cam Cointreau, nước cốt chanh, siro đường"
+        },
+        {
+          "name": "MOJITO",
+          "price": "120,000₫",
+          "ingredients": "Rum, Lime Juice, Sugar, Mint, Soda",
+          "ingredients_vi": "Rượu Rum, nước cốt chanh, đường, lá bạc hà, nước soda"
+        },
+        {
+          "name": "COSMOPOLITAN",
+          "price": "120,000₫",
+          "ingredients": "Vodka, Cointreau, Cranberry Juice",
+          "ingredients_vi": "Rượu Vodka, rượu mùi cam Cointreau, nước ép nam việt quất"
+        },
+        {
+          "name": "NEGRONI",
+          "price": "120,000₫",
+          "ingredients": "Gin, Campari, Martini Rosso",
+          "ingredients_vi": "Rượu Gin, rượu đắng Campari, vang khai vị Martini Rosso"
+        },
+        {
+          "name": "WHISKEY SOUR",
+          "price": "120,000₫",
+          "ingredients": "Bourbon, Lime Juice, Sugar Syrup",
+          "ingredients_vi": "Rượu Bourbon Whiskey, nước cốt chanh, siro đường"
+        },
+        {
+          "name": "OLD FASHION",
+          "price": "120,000₫",
+          "ingredients": "Bourbon, Sugar Cube, Angostura Bitter",
+          "ingredients_vi": "Rượu Bourbon, đường viên, rượu đắng Angostura Bitter"
+        },
+        {
+          "name": "PREMIUM GIN TONIC",
+          "price": "290,000₫",
+          "ingredients": "Hendrick's Gin, Fever Tree Indian Tonic",
+          "ingredients_vi": "Rượu Gin Hendrick's cao cấp, nước tonic Fever Tree Indian"
+        }
+      ]
+    }
+  },
+  "mocktails_juices": {
+    "title_en": "Mocktails & Fresh Juices",
+    "title_vi": "Mocktail & Nước Ép Tươi",
+    "mocktails": [
+      {
+        "name": "CITRUS HONEYBEE",
+        "price": "80,000₫",
+        "ingredients": "Orange, Lime, Honey",
+        "ingredients_vi": "Cam tươi, chanh, mật ong tự nhiên"
+      },
+      {
+        "name": "POWERFUL DAY",
+        "price": "80,000₫",
+        "ingredients": "Watermelon, Celery",
+        "ingredients_vi": "Dưa hấu thanh mát, cần tây bổ dưỡng"
+      }
+    ],
+    "fresh_juices": [
+      {
+        "name_en": "LIME",
+        "name_vi": "Nước chanh tươi",
+        "price": "50,000₫"
+      },
+      {
+        "name_en": "WATERMELON",
+        "name_vi": "Nước ép dưa hấu",
+        "price": "60,000₫"
+      },
+      {
+        "name_en": "PINEAPPLE",
+        "name_vi": "Nước ép dứa thơm",
+        "price": "60,000₫"
+      },
+      {
+        "name_en": "PASSION FRUIT",
+        "name_vi": "Nước ép chanh leo",
+        "price": "60,000₫"
+      },
+      {
+        "name_en": "ORANGE",
+        "name_vi": "Nước cam vắt tươi",
+        "price": "70,000₫"
+      },
+      {
+        "name_en": "APPLE",
+        "name_vi": "Nước ép táo",
+        "price": "70,000₫"
+      }
+    ],
+    "junbucha": [
+      {
+        "name": "QUẤT NHÀI",
+        "ingredients": "Kumquat, Jasmine",
+        "price": "120,000₫",
+        "ingredients_vi": "Quất tươi & hoa lài thanh tao"
+      },
+      {
+        "name": "DÂU GỪNG",
+        "ingredients": "Mulberry, Ginger",
+        "price": "120,000₫",
+        "ingredients_vi": "Dâu tằm chín mọng & gừng ấm nồng"
+      },
+      {
+        "name": "MƠ MUỐI",
+        "ingredients": "Mộc Châu Apricot, Sea Salt",
+        "price": "120,000₫",
+        "ingredients_vi": "Mơ rừng Mộc Châu ngâm muối biển"
+      }
+    ]
+  },
+  "beers_others": {
+    "title_en": "Beer, Soft Drinks, Tea & Coffee",
+    "title_vi": "Bia, Nước Ngọt, Trà & Cà Phê",
+    "beers": [
+      {
+        "name": "TRUC BACH",
+        "price": "50,000₫"
+      },
+      {
+        "name": "1664 BLANC",
+        "price": "60,000₫"
+      },
+      {
+        "name": "BELGO SESSION IPA (CRAFT BEER)",
+        "price": "130,000₫"
+      },
+      {
+        "name": "BELGO CHERRY (CRAFT BEER)",
+        "price": "130,000₫"
+      },
+      {
+        "name": "BELGO NON ALCOHOL (CRAFT BEER)",
+        "price": "130,000₫"
+      }
+    ],
+    "soft_drinks": [
+      {
+        "name": "LAVIE PREMIUM GLASS STILL WATER",
+        "price": "50,000₫"
+      },
+      {
+        "name": "LAVIE PREMIUM GLASS SPARKLING WATER (450ML)",
+        "price": "50,000₫"
+      },
+      {
+        "name": "EVIAN STILL WATER (750ML)",
+        "price": "120,000₫"
+      },
+      {
+        "name": "EVIAN SPARKLING WATER (750ML)",
+        "price": "120,000₫"
+      },
+      {
+        "name": "FEVER TREE PREMIUM GINGER ALE (200ML)",
+        "price": "130,000₫"
+      },
+      {
+        "name": "COCA, SODA, SPRITE, TONIC",
+        "price": "40,000₫"
+      }
+    ],
+    "tea": [
+      {
+        "name": "CHAMOMILE, JASMINE, EARL GREY, VIETNAMESE TEA",
+        "name_vi": "Trà hoa cúc, Trà lài, Trà Bá Tước, Trà mạn Việt Nam",
+        "price": "40,000₫"
+      }
+    ],
+    "coffee": [
+      {
+        "name": "ESPRESSO",
+        "price": "60,000₫"
+      },
+      {
+        "name": "AMERICANO",
+        "price": "60,000₫"
+      }
+    ]
+  }
+}

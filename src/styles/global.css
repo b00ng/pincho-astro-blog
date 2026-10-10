@@ -343,6 +343,22 @@ ul { list-style: none; }
 .menu-item__name {
   font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
   color: var(--color-heading);
+  display: inline-flex;
+  align-items: center;
+}
+.menu-item__star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px dotted var(--color-accent);
+  border-radius: 50%;
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  margin-left: 6px;
+  line-height: 1;
+  font-style: normal;
 }
 .menu-item__dots { flex: 1; border-bottom: 1px dotted var(--color-border-dotted); margin-bottom: 4px; }
 .menu-item__price { font-weight: 700; color: var(--color-accent); white-space: nowrap; }

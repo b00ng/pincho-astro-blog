@@ -13,12 +13,54 @@ const posts = allPosts
   .slice(0, 6);
 
 const featuredMenu = [
-  { name: 'Patatas Bravas', price: '95,000₫', description: 'Crispy potatoes, smoky aioli, spicy tomato sauce' },
-  { name: 'Wagyu Beef Tartare', price: '245,000₫', description: 'Hand-cut wagyu, quail egg, truffle oil, crostini' },
-  { name: 'Grilled Iberico Pork', price: '385,000₫', description: 'Spanish black pig, chimichurri, roasted vegetables' },
-  { name: 'Burrata Salad', price: '185,000₫', description: 'Creamy burrata, heirloom tomatoes, basil pesto' },
-  { name: 'Raclette Cheese Platter', price: '295,000₫', description: 'Melted raclette over cured meats and potatoes' },
-  { name: 'Seafood Paella', price: '325,000₫', description: 'Saffron rice, prawns, mussels, squid, chorizo' },
+  {
+    name: 'Octopus, Chorizo & Potatoes',
+    price: '210,000₫',
+    description: 'Grilled octopus, Spanish chorizo, tender potatoes & creamy hollandaise sauce',
+    isStar: true,
+  },
+  {
+    name: 'Scallop Sesame Tart',
+    price: '120,000₫',
+    description: 'Scallop sesame tart, chili oil & delicate taro foam (2pcs)',
+    isStar: true,
+  },
+  {
+    name: 'Wagyu Beef & Garlic Cracker',
+    price: '180,000₫',
+    description: 'Dried Wagyu beef, rich aioli sauce & crispy garlic cracker (3pcs)',
+    isStar: true,
+  },
+  {
+    name: 'Foie Gras with Roasted Apple',
+    price: '290,000₫',
+    description: 'Pan-seared foie gras with roasted apple, grilled pineapple, mango salsa & brioche',
+    isStar: true,
+  },
+  {
+    name: 'Pincho Salad',
+    price: '190,000₫',
+    description: 'Smoked salmon, succulent shrimp, fresh avocado & zesty kumquat dressing',
+    isStar: true,
+  },
+  {
+    name: '“Lady Burrata” Salad',
+    price: '320,000₫',
+    description: 'Fresh Burrata, seasonal fruits, poached pear, rice wine, honey & candied peanut',
+    isStar: true,
+  },
+  {
+    name: 'Iberico Pork (140g)',
+    price: '480,000₫',
+    description: 'Spanish Iberico black pig, braised purple cabbage, purple sweet potato & olives',
+    isStar: true,
+  },
+  {
+    name: 'Raclette Cheese & Cold Cut',
+    price: '420,000₫',
+    description: 'Melted Raclette cheese served over artisan cured meats & garlic butter potatoes',
+    isStar: true,
+  },
 ];
 ---
 
@@ -60,10 +102,14 @@ const featuredMenu = [
   <!-- Featured Menu -->
   <section class="section">
     <div class="container">
-      <SectionHeader title="Featured" accent="Menu" subtitle="Discover our signature tapas paired beautifully with Spanish wines and creative cocktails" />
+      <SectionHeader
+        title="Featured"
+        accent="Menu"
+        subtitle="Discover our chef-recommended star dishes (★) from Pincho's A La Carte menu"
+      />
       <div class="menu-grid animate animate--up">
         {featuredMenu.map(item => (
-          <MenuItem name={item.name} price={item.price} description={item.description} />
+          <MenuItem name={item.name} price={item.price} description={item.description} isStar={item.isStar} />
         ))}
       </div>
       <a href="/en/menu/" class="btn btn--primary btn--center">View Full Menu</a>

@@ -3,13 +3,17 @@ interface Props {
   name: string;
   price: string;
   description?: string;
+  isStar?: boolean;
 }
-const { name, price, description } = Astro.props;
+const { name, price, description, isStar } = Astro.props;
 ---
 
 <div class="menu-item">
   <div class="menu-item__header">
-    <span class="menu-item__name">{name}</span>
+    <span class="menu-item__name">
+      {name}
+      {isStar && <b class="menu-item__star" title="Pincho recommendation">★</b>}
+    </span>
     <span class="menu-item__dots"></span>
     <span class="menu-item__price">{price}</span>
   </div>

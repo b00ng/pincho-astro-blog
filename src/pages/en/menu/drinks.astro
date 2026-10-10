@@ -1,0 +1,1058 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import drinksData from '../../../data/drinks.json';
+
+const { wine_by_glass, wine_by_bottle, sangria_cocktails, mocktails_juices, beers_others } = drinksData;
+---
+
+<BaseLayout
+  lang="en"
+  title="Drink Menu | Pincho Tapas Kitchen & Drinks"
+  description="Explore the curated Drink Menu at Pincho Tapas Kitchen — Sommelier-selected international wines, Signature Cocktails, Sangria, Craft Beers, Mocktails & Junbucha."
+>
+  <link rel="stylesheet" href="/assets/style.css" />
+
+  <!-- Menu Mode Switcher -->
+  <div class="menu-mode-bar">
+    <div class="menu-mode-tabs">
+      <a href="/en/menu/" class="mode-tab">
+        <i class="fas fa-utensils"></i> A La Carte Menu
+      </a>
+      <a href="/en/menu/brunch/" class="mode-tab">
+        <i class="fas fa-sun"></i> Set / Brunch Menu
+      </a>
+      <a href="/en/menu/drinks/" class="mode-tab active">
+        <i class="fas fa-wine-glass-alt"></i> Drink Menu
+      </a>
+    </div>
+  </div>
+
+  <div class="menu-wrapper drinks-page">
+    <!-- Drinks Hero -->
+    <header class="drinks-hero">
+      <div class="drinks-hero__badge">
+        <i class="fas fa-glass-cheers"></i> PINCHO DRINK LIST 2026
+      </div>
+      <h1 class="drinks-hero__quote">
+        “First you take a drink,<br/>then the drink takes a drink,<br/><span>then the drink takes you”</span>
+      </h1>
+      <p class="drinks-hero__subtitle">
+        Explore our curated selection of sommelier-recommended international wines, artisan cocktails, handcrafted beers, and refreshing non-alcoholic creations.
+      </p>
+    </header>
+
+    <!-- In-page Navigation -->
+    <nav class="drinks-nav" aria-label="Drink menu sections">
+      <a href="#wine-by-glass">Wine by Glass</a>
+      <a href="#sparkling-rose">Sparkling &amp; Rose</a>
+      <a href="#white-wine">White Wine</a>
+      <a href="#red-wine">Red Wine</a>
+      <a href="#cocktails">Cocktails &amp; Sangria</a>
+      <a href="#mocktails-juices">Mocktails &amp; Juices</a>
+      <a href="#beers-others">Beers &amp; Others</a>
+    </nav>
+
+    <!-- 1. Wine by Glass -->
+    <section class="drink-section" id="wine-by-glass">
+      <div class="section-title-wrap">
+        <div class="section-tag">BY THE GLASS</div>
+        <h2 class="drink-heading">Wine By Glass</h2>
+        <p class="section-subdesc">Delight in refined wine pours by the glass or by the bottle</p>
+      </div>
+
+      <div class="wine-glass-grid">
+        {wine_by_glass.sections.map((sec) => (
+          <div class="wine-glass-card">
+            <h3 class="wine-subheading">
+              <span class="subheading-accent">♦</span> {sec.title}
+            </h3>
+            <div class="wine-list">
+              {sec.items.map((item) => (
+                <div class="wine-row">
+                  <div class="wine-info">
+                    <strong class="wine-name">{item.name}</strong>
+                    <span class="wine-grape">{item.grape}</span>
+                  </div>
+                  <div class="wine-prices">
+                    <div class="price-pill">
+                      <span class="price-icon" title="By glass">🍷</span>
+                      <span class="price-val">{item.glass}</span>
+                    </div>
+                    <div class="price-pill price-pill--bottle">
+                      <span class="price-icon" title="By bottle">🍾</span>
+                      <span class="price-val">{item.bottle}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="section-tax-note">* All prices exclude taxes and fees</p>
+    </section>
+
+    <div class="drinks-divider" aria-hidden="true"><span></span></div>
+
+    <!-- 2. Champagne, Sparkling & Rose -->
+    <section class="drink-section" id="sparkling-rose">
+      <div class="section-title-wrap">
+        <div class="section-tag">BY THE BOTTLE</div>
+        <h2 class="drink-heading">Champagne, Sparkling &amp; Rose</h2>
+        <p class="section-subdesc">Prestige Champagnes, celebratory sparklings, and elegant rosés</p>
+      </div>
+
+      <div class="wine-bottle-grid">
+        {wine_by_bottle.sections.slice(0, 2).map((sec) => (
+          <div class="wine-card">
+            <h3 class="wine-subheading">
+              <span class="subheading-accent">♦</span> {sec.category}
+            </h3>
+            <div class="wine-list">
+              {sec.items.map((item) => (
+                <div class="wine-row">
+                  <div class="wine-info">
+                    <strong class="wine-name">
+                      {item.name}
+                      {item.sommelier && (
+                        <span class="sommelier-badge" title="Sommelier Recommended">
+                          <i class="fas fa-wine-glass"></i> Sommelier Pick
+                        </span>
+                      )}
+                    </strong>
+                    <span class="wine-grape">{item.grape}</span>
+                  </div>
+                  <div class="wine-prices">
+                    <div class="price-pill price-pill--bottle">
+                      <span class="price-icon">🍾</span>
+                      <span class="price-val">{item.bottle}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="drinks-divider" aria-hidden="true"><span></span></div>
+
+    <!-- 3. White Wine (Bottle) -->
+    <section class="drink-section" id="white-wine">
+      <div class="section-title-wrap">
+        <div class="section-tag">WHITE WINE BY THE BOTTLE</div>
+        <h2 class="drink-heading">White Wine</h2>
+        <p class="section-subdesc">Curated white wines from France, New Zealand, Spain, Chile, Argentina &amp; Germany</p>
+      </div>
+
+      <div class="wine-bottle-grid">
+        {wine_by_bottle.sections.slice(2, 4).map((sec) => (
+          <div class="wine-card">
+            <h3 class="wine-subheading">
+              <span class="subheading-accent">♦</span> {sec.category}
+            </h3>
+            <div class="wine-list">
+              {sec.items.map((item) => (
+                <div class="wine-row">
+                  <div class="wine-info">
+                    <strong class="wine-name">
+                      {item.name}
+                      {item.sommelier && (
+                        <span class="sommelier-badge" title="Sommelier Recommended">
+                          <i class="fas fa-wine-glass"></i> Sommelier Pick
+                        </span>
+                      )}
+                    </strong>
+                    <span class="wine-grape">{item.grape}</span>
+                  </div>
+                  <div class="wine-prices">
+                    <div class="price-pill price-pill--bottle">
+                      <span class="price-icon">🍾</span>
+                      <span class="price-val">{item.bottle}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="drinks-divider" aria-hidden="true"><span></span></div>
+
+    <!-- 4. Red Wine (Bottle) -->
+    <section class="drink-section" id="red-wine">
+      <div class="section-title-wrap">
+        <div class="section-tag">RED WINE BY THE BOTTLE</div>
+        <h2 class="drink-heading">Red Wine</h2>
+        <p class="section-subdesc">From supple, fruit-forward pours to rich, structured, world-renowned vintages</p>
+      </div>
+
+      <div class="wine-bottle-grid">
+        {wine_by_bottle.sections.slice(4).map((sec) => (
+          <div class="wine-card">
+            <h3 class="wine-subheading">
+              <span class="subheading-accent">♦</span> {sec.category}
+            </h3>
+            <div class="wine-list">
+              {sec.items.map((item) => (
+                <div class="wine-row">
+                  <div class="wine-info">
+                    <strong class="wine-name">
+                      {item.name}
+                      {item.sommelier && (
+                        <span class="sommelier-badge" title="Sommelier Recommended">
+                          <i class="fas fa-wine-glass"></i> Sommelier Pick
+                        </span>
+                      )}
+                    </strong>
+                    <span class="wine-grape">{item.grape}</span>
+                  </div>
+                  <div class="wine-prices">
+                    <div class="price-pill price-pill--bottle">
+                      <span class="price-icon">🍾</span>
+                      <span class="price-val">{item.bottle}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="drinks-divider" aria-hidden="true"><span></span></div>
+
+    <!-- 5. Sangria & Cocktails -->
+    <section class="drink-section" id="cocktails">
+      <div class="section-title-wrap">
+        <div class="section-tag">MIXOLOGY</div>
+        <h2 class="drink-heading">Cocktails &amp; Sangria</h2>
+        <p class="section-subdesc">Signature concoctions and enduring classics inspired by Spanish vibrancy</p>
+      </div>
+
+      <!-- Sangria Spotlight -->
+      <div class="sangria-banner">
+        <div class="sangria-banner__header">
+          <span class="sangria-icon">🍷</span>
+          <h3>Save Water, Drink Sangria</h3>
+          <p>The iconic Spanish favorite — brimming with seasonal fresh fruits and aromatic herbs</p>
+        </div>
+        <div class="sangria-grid">
+          {sangria_cocktails.sangria.items.map((item) => (
+            <div class="sangria-card">
+              <div class="sangria-card__top">
+                <h4>{item.name}</h4>
+                <div class="sangria-prices">
+                  <span class="price-tag"><small>Glass</small> {item.price_small}</span>
+                  <span class="price-sep">/</span>
+                  <span class="price-tag"><small>Pitcher</small> {item.price_big}</span>
+                </div>
+              </div>
+              <p class="sangria-card__desc">{item.ingredients}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Signature Cocktail Spotlight -->
+      <div class="signature-spotlight">
+        <div class="signature-badge">
+          <i class="fas fa-award"></i> {sangria_cocktails.signature.items[0].badge}
+        </div>
+        <div class="signature-content">
+          <div class="signature-text">
+            <h3>{sangria_cocktails.signature.items[0].name}</h3>
+            <p class="signature-desc">{sangria_cocktails.signature.items[0].ingredients}</p>
+          </div>
+          <div class="signature-price">
+            <strong>{sangria_cocktails.signature.items[0].price}</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Classic Cocktails -->
+      <div class="cocktails-block">
+        <h3 class="wine-subheading">
+          <span class="subheading-accent">♦</span> Classic Cocktails
+        </h3>
+        <div class="cocktails-grid">
+          {sangria_cocktails.classics.items.map((item) => (
+            <div class="cocktail-item">
+              <div class="cocktail-header">
+                <span class="cocktail-name">{item.name}</span>
+                <span class="menu-item__dots"></span>
+                <span class="cocktail-price">{item.price}</span>
+              </div>
+              <p class="cocktail-desc">{item.ingredients}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div class="drinks-divider" aria-hidden="true"><span></span></div>
+
+    <!-- 6. Mocktails, Fresh Juices & Junbucha -->
+    <section class="drink-section" id="mocktails-juices">
+      <div class="section-title-wrap">
+        <div class="section-tag">NON-ALCOHOLIC &amp; REFRESHING</div>
+        <h2 class="drink-heading">Mocktails, Fresh Fruit Juices &amp; Junbucha</h2>
+        <p class="section-subdesc">Wholesome, zesty, and non-alcoholic drinks crafted for pure refreshment</p>
+      </div>
+
+      <div class="nonalc-grid">
+        <!-- Mocktails -->
+        <div class="nonalc-card">
+          <h3 class="wine-subheading"><span class="subheading-accent">♦</span> Mocktails</h3>
+          <div class="nonalc-list">
+            {mocktails_juices.mocktails.map((item) => (
+              <div class="nonalc-item">
+                <div class="nonalc-header">
+                  <strong>{item.name}</strong>
+                  <span class="nonalc-price">{item.price}</span>
+                </div>
+                <p class="nonalc-desc">{item.ingredients}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Fresh Fruit Juices -->
+        <div class="nonalc-card">
+          <h3 class="wine-subheading"><span class="subheading-accent">♦</span> Fresh Fruit Juices</h3>
+          <div class="nonalc-list">
+            {mocktails_juices.fresh_juices.map((item) => (
+              <div class="nonalc-item nonalc-item--simple">
+                <div class="nonalc-header">
+                  <strong>{item.name_en}</strong>
+                  <span class="nonalc-price">{item.price}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Junbucha -->
+        <div class="nonalc-card nonalc-card--junbucha">
+          <h3 class="wine-subheading">
+            <span class="subheading-accent">♦</span> Junbucha
+            <small>(Naturally Fermented Honey Tea)</small>
+          </h3>
+          <div class="nonalc-list">
+            {mocktails_juices.junbucha.map((item) => (
+              <div class="nonalc-item">
+                <div class="nonalc-header">
+                  <strong>{item.name}</strong>
+                  <span class="nonalc-price">{item.price}</span>
+                </div>
+                <p class="nonalc-desc">{item.ingredients}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="drinks-divider" aria-hidden="true"><span></span></div>
+
+    <!-- 7. Beers, Soft Drinks, Tea & Coffee -->
+    <section class="drink-section" id="beers-others">
+      <div class="section-title-wrap">
+        <div class="section-tag">BEERS &amp; BEVERAGES</div>
+        <h2 class="drink-heading">Beers, Soft Drinks, Tea &amp; Coffee</h2>
+        <p class="section-subdesc">Belgian &amp; local beers, premium mineral water, artisan teas &amp; Italian espresso</p>
+      </div>
+
+      <div class="others-grid">
+        <!-- Beer -->
+        <div class="others-card">
+          <h3 class="wine-subheading"><span class="subheading-accent">🍺</span> Beers &amp; Craft Beers</h3>
+          <div class="others-list">
+            {beers_others.beers.map((item) => (
+              <div class="others-item">
+                <span class="others-name">{item.name}</span>
+                <span class="menu-item__dots"></span>
+                <span class="others-price">{item.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Soft Drinks & Water -->
+        <div class="others-card">
+          <h3 class="wine-subheading"><span class="subheading-accent">💧</span> Mineral Water &amp; Soft Drinks</h3>
+          <div class="others-list">
+            {beers_others.soft_drinks.map((item) => (
+              <div class="others-item">
+                <span class="others-name">{item.name}</span>
+                <span class="menu-item__dots"></span>
+                <span class="others-price">{item.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Tea -->
+        <div class="others-card">
+          <h3 class="wine-subheading"><span class="subheading-accent">🍵</span> Artisan Teas</h3>
+          <div class="others-list">
+            {beers_others.tea.map((item) => (
+              <div class="others-item others-item--stacked">
+                <div class="others-header-stacked">
+                  <span class="others-name">{item.name}</span>
+                  <span class="others-price">{item.price}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Coffee -->
+        <div class="others-card">
+          <h3 class="wine-subheading"><span class="subheading-accent">☕</span> Coffee</h3>
+          <div class="others-list">
+            {beers_others.coffee.map((item) => (
+              <div class="others-item">
+                <span class="others-name">{item.name}</span>
+                <span class="menu-item__dots"></span>
+                <span class="others-price">{item.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Notes Footer -->
+    <footer class="drinks-footer">
+      <p>*** All prices are in VND and exclude VAT tax</p>
+      <p>*** There is no service charge, so tips are welcome</p>
+      <a href="#top" class="back-to-top">Back to top ↑</a>
+    </footer>
+  </div>
+
+  <!-- PDF Download Section -->
+  <section class="section section--alt" style="margin-top: 3rem;">
+    <div class="container">
+      <SectionHeader
+        title="Original PDF Menu"
+        subtitle="Download or view the complete original PDF design of Pincho Drink Menu 2026."
+      />
+      <div class="pdf-grid animate animate--up">
+        <a
+          href="/menu/Drink-Menu-2026.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pdf-card pdf-card--highlight"
+        >
+          <div class="pdf-card__icon">
+            <i class="fas fa-file-pdf" style="font-size: 48px;"></i>
+          </div>
+          <h3 class="pdf-card__title">Pincho Drink Menu 2026</h3>
+          <span class="pdf-card__link">Download Original PDF</span>
+        </a>
+
+        <a
+          href="/en/menu/"
+          class="pdf-card"
+        >
+          <div class="pdf-card__icon">
+            <i class="fas fa-utensils" style="font-size: 48px;"></i>
+          </div>
+          <h3 class="pdf-card__title">A La Carte Menu</h3>
+          <span class="pdf-card__link">Explore A La Carte</span>
+        </a>
+
+        <a
+          href="/en/menu/brunch/"
+          class="pdf-card"
+        >
+          <div class="pdf-card__icon">
+            <i class="fas fa-sun" style="font-size: 48px;"></i>
+          </div>
+          <h3 class="pdf-card__title">Pincho Set / Brunch</h3>
+          <span class="pdf-card__link">Explore Set &amp; Brunch</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .menu-mode-bar {
+    background: #e8dcc8;
+    border-bottom: 2px solid var(--orange, #cf6e2a);
+    padding: 1rem 0;
+    margin-top: 72px;
+  }
+  .menu-mode-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+  }
+  .mode-tab {
+    flex: 1;
+    min-width: 170px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: #eee3cf;
+    color: #151313;
+    font-family: Arial Narrow, Arial, sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(207, 110, 42, 0.3);
+  }
+  .mode-tab:hover {
+    background: #cf6e2a;
+    color: #ffffff;
+  }
+  .mode-tab.active {
+    background: #cf6e2a;
+    color: #ffffff;
+    border-color: #cf6e2a;
+    box-shadow: 0 4px 12px rgba(207, 110, 42, 0.3);
+  }
+
+  .drinks-page {
+    background: #fbf8f2;
+    width: min(1360px, 100%);
+    margin: 0 auto;
+    box-shadow: 0 0 55px rgba(50, 31, 12, 0.15);
+  }
+
+  /* Drinks Hero */
+  .drinks-hero {
+    background: linear-gradient(135deg, #1f140e 0%, #3e2213 50%, #1f140e 100%);
+    color: #fff;
+    padding: 70px 6% 60px;
+    text-align: center;
+    position: relative;
+    border-bottom: 3px solid #cf6e2a;
+  }
+  .drinks-hero__badge {
+    display: inline-block;
+    background: #cf6e2a;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .drinks-hero__quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(28px, 4.5vw, 48px);
+    line-height: 1.25;
+    font-weight: 500;
+    font-style: italic;
+    color: #f7ca51;
+    max-width: 900px;
+    margin: 0 auto 20px;
+  }
+  .drinks-hero__quote span {
+    color: #fff;
+    font-style: normal;
+    font-weight: 600;
+    display: block;
+    margin-top: 6px;
+  }
+  .drinks-hero__subtitle {
+    color: #e5d3be;
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  /* Sticky Navigation */
+  .drinks-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    padding: 14px 20px;
+    background: #eee3cf;
+    border-bottom: 1px solid rgba(207, 110, 42, 0.25);
+    position: sticky;
+    top: 72px;
+    z-index: 20;
+    flex-wrap: wrap;
+  }
+  .drinks-nav a {
+    color: #422612;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .drinks-nav a:hover {
+    background: #cf6e2a;
+    color: #fff;
+  }
+
+  /* Section Titles */
+  .drink-section {
+    padding: 50px clamp(20px, 4vw, 55px);
+  }
+  .section-title-wrap {
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  .section-tag {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: #cf6e2a;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .drink-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(32px, 4vw, 46px);
+    color: #2b1810;
+    margin: 0 0 8px;
+    letter-spacing: 0.02em;
+  }
+  .section-subdesc {
+    color: #7d6b5c;
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+  .drinks-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(207, 110, 42, 0.35), transparent);
+    margin: 10px 5%;
+  }
+
+  /* Wine Grid & Cards */
+  .wine-glass-grid,
+  .wine-bottle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 30px;
+  }
+  .wine-glass-card,
+  .wine-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 26px 24px;
+    border: 1px solid rgba(207, 110, 42, 0.18);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  }
+  .wine-subheading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.3rem;
+    color: #cf6e2a;
+    border-bottom: 1.5px solid #eee3cf;
+    padding-bottom: 12px;
+    margin: 0 0 16px;
+  }
+  .subheading-accent {
+    color: #cf6e2a;
+    font-size: 0.85rem;
+    margin-right: 4px;
+  }
+
+  .wine-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .wine-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px dotted #e8ded2;
+  }
+  .wine-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .wine-info {
+    flex: 1;
+  }
+  .wine-name {
+    display: block;
+    color: #2b1810;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+  .wine-grape {
+    display: block;
+    font-size: 0.82rem;
+    color: #856f5e;
+    font-style: italic;
+  }
+  .sommelier-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #1b683b;
+    background: #e9f5ed;
+    border: 1px solid #b7e2c5;
+    border-radius: 50px;
+    padding: 2px 8px;
+    margin-left: 6px;
+    vertical-align: 1px;
+    font-style: normal;
+  }
+
+  .wine-prices {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .price-pill {
+    background: #fdf5ec;
+    border: 1px solid rgba(207, 110, 42, 0.25);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #cf6e2a;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  .price-pill--bottle {
+    background: #fbf0e4;
+    border-color: #cf6e2a;
+  }
+
+  /* Sangria Banner */
+  .sangria-banner {
+    background: #6a1a24;
+    color: #fff;
+    border-radius: 16px;
+    padding: 34px clamp(20px, 4vw, 40px);
+    margin-bottom: 35px;
+    box-shadow: 0 8px 24px rgba(106, 26, 36, 0.2);
+  }
+  .sangria-banner__header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .sangria-icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .sangria-banner__header h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(24px, 3.5vw, 34px);
+    color: #f7ca51;
+    margin: 0 0 6px;
+  }
+  .sangria-banner__header p {
+    color: #f5d6dc;
+    font-size: 0.95rem;
+  }
+  .sangria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .sangria-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .sangria-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sangria-card__top h4 {
+    color: #fff;
+    font-size: 1.15rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .sangria-prices {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .sangria-prices .price-tag {
+    font-weight: 700;
+    color: #f7ca51;
+    font-size: 0.95rem;
+  }
+  .sangria-prices .price-tag small {
+    font-size: 0.75rem;
+    color: #fff;
+    opacity: 0.8;
+  }
+  .sangria-prices .price-sep {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .sangria-card__desc {
+    color: #fcecef;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* Signature Spotlight */
+  .signature-spotlight {
+    background: #172738;
+    color: #fff;
+    border-radius: 14px;
+    padding: 28px clamp(20px, 3.5vw, 36px);
+    margin-bottom: 35px;
+    border-left: 5px solid #cf6e2a;
+    box-shadow: 0 8px 24px rgba(23, 39, 56, 0.2);
+  }
+  .signature-badge {
+    display: inline-block;
+    background: #cf6e2a;
+    color: #fff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .signature-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .signature-text h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    color: #f7ca51;
+    margin: 0 0 6px;
+  }
+  .signature-desc {
+    color: #e3edf7;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  .signature-price strong {
+    font-size: 1.5rem;
+    color: #f7ca51;
+    white-space: nowrap;
+  }
+
+  /* Classic Cocktails */
+  .cocktails-block {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px 24px;
+    border: 1px solid rgba(207, 110, 42, 0.18);
+  }
+  .cocktails-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px 40px;
+  }
+  .cocktail-item {
+    border-bottom: 1px dotted #e8ded2;
+    padding-bottom: 12px;
+  }
+  .cocktail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .cocktail-name {
+    font-weight: 700;
+    color: #2b1810;
+    font-size: 0.98rem;
+    letter-spacing: 0.04em;
+  }
+  .cocktail-price {
+    font-weight: 700;
+    color: #cf6e2a;
+    white-space: nowrap;
+  }
+  .cocktail-desc {
+    font-size: 0.86rem;
+    color: #554438;
+    margin: 0;
+  }
+
+  /* Non-alcoholic Grid */
+  .nonalc-grid,
+  .others-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+  .nonalc-card,
+  .others-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid rgba(207, 110, 42, 0.18);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  }
+  .nonalc-list,
+  .others-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .nonalc-item {
+    border-bottom: 1px dotted #e8ded2;
+    padding-bottom: 10px;
+  }
+  .nonalc-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .nonalc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .nonalc-price {
+    font-weight: 700;
+    color: #cf6e2a;
+  }
+  .nonalc-desc {
+    font-size: 0.86rem;
+    color: #554438;
+    margin: 0;
+  }
+
+  .others-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    border-bottom: 1px dotted #e8ded2;
+    padding-bottom: 10px;
+  }
+  .others-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .others-name {
+    font-weight: 600;
+    color: #2b1810;
+    font-size: 0.92rem;
+  }
+  .others-price {
+    font-weight: 700;
+    color: #cf6e2a;
+    white-space: nowrap;
+  }
+  .others-item--stacked {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+  .others-header-stacked {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .section-tax-note {
+    text-align: center;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #947e6e;
+    margin-top: 24px;
+  }
+
+  .drinks-footer {
+    background: #cf6e2a;
+    color: #fff3df;
+    text-align: center;
+    letter-spacing: 0.04em;
+    padding: 28px 24px 24px;
+    font-style: italic;
+    position: relative;
+    margin-top: 40px;
+  }
+  .drinks-footer p {
+    margin: 4px;
+  }
+  .back-to-top {
+    color: #fff;
+    text-transform: uppercase;
+    font: 700 12px Arial, sans-serif;
+    position: absolute;
+    bottom: 18px;
+    right: 22px;
+  }
+
+  .pdf-card--highlight {
+    border-color: #cf6e2a;
+    background: #fffdf9;
+  }
+  .pdf-card--highlight:hover {
+    border-color: #cf6e2a;
+    box-shadow: 0 12px 28px rgba(207, 110, 42, 0.18);
+  }
+
+  @media (max-width: 768px) {
+    .drinks-nav {
+      top: 60px;
+      overflow-x: auto;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+    }
+    .drinks-nav a {
+      white-space: nowrap;
+    }
+    .wine-glass-grid,
+    .wine-bottle-grid,
+    .cocktails-grid,
+    .nonalc-grid,
+    .others-grid {
+      grid-template-columns: 1fr;
+    }
+    .signature-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .drinks-footer a {
+      position: static;
+      display: inline-block;
+      margin-top: 12px;
+    }
+  }
+</style>

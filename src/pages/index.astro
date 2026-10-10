@@ -13,12 +13,54 @@ const posts = allPosts
   .slice(0, 6);
 
 const featuredMenu = [
-  { name: 'Patatas Bravas', price: '95,000₫', description: 'Khoai tây giòn, sốt aioli xông khói & sốt cà chua cay' },
-  { name: 'Wagyu Beef Tartare', price: '245,000₫', description: 'Thịt bò Wagyu xắt tay, trứng cút, dầu nấm phomai & bánh mì nướng' },
-  { name: 'Grilled Iberico Pork', price: '385,000₫', description: 'Heo đen Tây Ban Nha nướng, sốt chimichurri & rau củ bỏ lò' },
-  { name: 'Burrata Salad', price: '185,000₫', description: 'Phomai Burrata béo ngậy, cà chua mầm & sốt pesto húng tây' },
-  { name: 'Raclette Cheese Platter', price: '295,000₫', description: 'Phomai Raclette nóng chảy phủ lên thịt nguội & khoai tây' },
-  { name: 'Seafood Paella', price: '325,000₫', description: 'Cơm hải sản Tây Ban Nha, tôm, vẹm xanh, mực & xúc xích chorizo' },
+  {
+    name: 'Octopus, Chorizo & Potatoes',
+    price: '210,000₫',
+    description: 'Bạch tuộc nướng, xúc xích cay, khoai tây và xốt Hollandaise béo ngậy',
+    isStar: true,
+  },
+  {
+    name: 'Scallop Sesame Tart',
+    price: '120,000₫',
+    description: 'Tart vừng sò điệp, dầu ớt cay nhẹ và bọt khoai môn mịn màng (2 miếng)',
+    isStar: true,
+  },
+  {
+    name: 'Wagyu Beef & Garlic Cracker',
+    price: '180,000₫',
+    description: 'Bò Wagyu khô đậm vị, xốt Aioli thơm bùi và bánh mì tỏi giòn (3 miếng)',
+    isStar: true,
+  },
+  {
+    name: 'Foie Gras with Roasted Apple',
+    price: '290,000₫',
+    description: 'Gan ngỗng áp chảo với táo nướng, dứa nướng, xoài tươi trộn và bánh mì ngọt brioche',
+    isStar: true,
+  },
+  {
+    name: 'Pincho Salad',
+    price: '190,000₫',
+    description: 'Salad cá hồi xông khói, tôm tươi, quả bơ béo ngậy và xốt quất thanh mát',
+    isStar: true,
+  },
+  {
+    name: '“Lady Burrata” Salad',
+    price: '320,000₫',
+    description: 'Phô mai Burrata tươi, hoa quả theo mùa, lê hầm rượu nếp, mật ong & đậu phộng ngào đường',
+    isStar: true,
+  },
+  {
+    name: 'Iberico Pork (140g)',
+    price: '480,000₫',
+    description: 'Thịt lợn chân đen Iberico Tây Ban Nha nướng, bắp cải tím, khoai lang tím chiên và oliu',
+    isStar: true,
+  },
+  {
+    name: 'Raclette Cheese & Cold Cut',
+    price: '420,000₫',
+    description: 'Phô mai Raclette nóng chảy phủ lên đĩa thịt nguội và khoai tây xóc bơ tỏi thơm lừng',
+    isStar: true,
+  },
 ];
 ---
 
@@ -60,10 +102,14 @@ const featuredMenu = [
   <!-- Featured Menu -->
   <section class="section">
     <div class="container">
-      <SectionHeader title="Món Ăn" accent="Nổi Bật" subtitle="Khám phá các món tapas đặc trưng kết hợp hoàn hảo cùng rượu vang Tây Ban Nha và cocktail sáng tạo" />
+      <SectionHeader
+        title="Món Ăn"
+        accent="Nổi Bật"
+        subtitle="Khám phá các món ăn đặc trưng được gắn sao gợi ý (★) từ thực đơn A La Carte của Pincho"
+      />
       <div class="menu-grid animate animate--up">
         {featuredMenu.map(item => (
-          <MenuItem name={item.name} price={item.price} description={item.description} />
+          <MenuItem name={item.name} price={item.price} description={item.description} isStar={item.isStar} />
         ))}
       </div>
       <a href="/menu/" class="btn btn--primary btn--center">Xem Toàn Bộ Thực Đơn</a>
